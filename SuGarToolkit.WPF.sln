@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.Controls.Dialogs", "SuGarToolkit.WPF.Controls.Dialogs\SuGarToolkit.WPF.Controls.Dialogs.csproj", "{786B946A-A93F-4143-AC02-7308CBC7AC75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator", "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator.csproj", "{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute", "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute.csproj", "{71A7DF3F-DC56-424F-9C51-5DC4133940DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.Samples.Dialogs", "SuGarToolkit.WPF.Samples.Dialogs\SuGarToolkit.WPF.Samples.Dialogs.csproj", "{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{786B946A-A93F-4143-AC02-7308CBC7AC75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786B946A-A93F-4143-AC02-7308CBC7AC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786B946A-A93F-4143-AC02-7308CBC7AC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786B946A-A93F-4143-AC02-7308CBC7AC75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3111F1C2-2F47-4060-AE77-BBC23EB244B2}
+	EndGlobalSection
+EndGlobal

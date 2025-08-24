@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs"
+    xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <SolidColorBrush x:Key="SystemFillColorAttentionBrush" Color="{DynamicResource SystemAccentColorLight2}" />
+
+    <SolidColorBrush x:Key="MessageBoxHeaderErrorSeverityBackgroundBrush" Color="{DynamicResource SystemFillColorCriticalBackground}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderWarningSeverityBackgroundBrush" Color="{DynamicResource SystemFillColorCautionBackground}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderSuccessSeverityBackgroundBrush" Color="{DynamicResource SystemFillColorSuccessBackground}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderInformationalSeverityBackgroundBrush" Color="{DynamicResource SystemFillColorAttentionBackground}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderQuestionalSeverityBackgroundBrush" Color="{DynamicResource SystemFillColorAttentionBackground}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderErrorSeverityIconBackground" Color="{DynamicResource SystemFillColorCritical}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderWarningSeverityIconBackground" Color="#FCE100" />
+    <SolidColorBrush x:Key="MessageBoxHeaderSuccessSeverityIconBackground" Color="{DynamicResource SystemFillColorSuccess}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderInformationalSeverityIconBackground" Color="{DynamicResource {x:Static SystemColors.AccentColorKey}}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderQuestionalSeverityIconBackground" Color="{DynamicResource {x:Static SystemColors.AccentColorKey}}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderErrorSeverityIconForeground" Color="{DynamicResource TextFillColorInverse}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderWarningSeverityIconForeground" Color="{DynamicResource TextFillColorPrimary}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderSuccessSeverityIconForeground" Color="{DynamicResource TextFillColorInverse}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderInformationalSeverityIconForeground" Color="{DynamicResource TextFillColorInverse}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderQuestionalSeverityIconForeground" Color="{DynamicResource TextFillColorInverse}" />
+
+    <Thickness x:Key="MessageBoxHeaderIconMargin">0,0,12,0</Thickness>
+    <system:Double x:Key="MessageBoxHeaderIconFontSize">24</system:Double>
+    <system:String x:Key="MessageBoxHeaderIconBackgroundGlyph">&#xF136;</system:String>
+    <system:String x:Key="MessageBoxHeaderWarningBackgroundGlyph">&#xF139;</system:String>
+    <system:String x:Key="MessageBoxHeaderInformationalIconGlyph">&#xF13F;</system:String>
+    <system:String x:Key="MessageBoxHeaderQuestionalIconGlyph">&#xF142;</system:String>
+    <system:String x:Key="MessageBoxHeaderErrorIconGlyph">&#xF13D;</system:String>
+    <system:String x:Key="MessageBoxHeaderWarningIconGlyph">&#xF13C;</system:String>
+    <system:String x:Key="MessageBoxHeaderSuccessIconGlyph">&#xF13E;</system:String>
+</ResourceDictionary>

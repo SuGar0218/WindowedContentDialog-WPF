@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0-windows7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>preview</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute.csproj" />
+		<ProjectReference Include="..\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Strings\MessageBoxButtonText.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>MessageBoxButtonText.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Strings\MessageBoxButtonText.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>MessageBoxButtonText.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Strings\MessageBoxButtonText.zh-CN.resx">
+			<LastGenOutput>MessageBoxButtonText.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
+</Project>

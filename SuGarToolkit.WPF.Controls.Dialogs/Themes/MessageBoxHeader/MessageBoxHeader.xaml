@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Themes/MessageBoxHeader/MessageBoxHeader_themeresources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type local:MessageBoxHeader}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:MessageBoxHeader}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid
+                                x:Name="StandardIconArea"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+
+                                <TextBlock
+                                    x:Name="IconBackground"
+                                    Margin="{StaticResource MessageBoxHeaderIconMargin}"
+                                    VerticalAlignment="Top"
+                                    FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                    FontSize="{StaticResource MessageBoxHeaderIconFontSize}"
+                                    Foreground="{StaticResource MessageBoxHeaderInformationalSeverityIconBackground}"
+                                    Text="{StaticResource MessageBoxHeaderIconBackgroundGlyph}" />
+
+                                <TextBlock
+                                    x:Name="StandardIcon"
+                                    Margin="{StaticResource MessageBoxHeaderIconMargin}"
+                                    VerticalAlignment="Top"
+                                    FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                    FontSize="{StaticResource MessageBoxHeaderIconFontSize}"
+                                    Foreground="{StaticResource MessageBoxHeaderInformationalSeverityIconForeground}"
+                                    Text="{StaticResource MessageBoxHeaderInformationalIconGlyph}" />
+                            </Grid>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="SemiBold"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Text}"
+                                TextWrapping="Wrap" />
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Icon" Value="Information" />
+                        <Trigger Property="Icon" Value="Question">
+                            <Setter TargetName="IconBackground" Property="Foreground" Value="{DynamicResource MessageBoxHeaderQuestionalSeverityIconBackground}" />
+                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderQuestionalIconGlyph}" />
+                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderQuestionalSeverityIconForeground}" />
+                        </Trigger>
+                        <Trigger Property="Icon" Value="Error">
+                            <Setter TargetName="IconBackground" Property="Foreground" Value="{DynamicResource MessageBoxHeaderErrorSeverityIconBackground}" />
+                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderErrorIconGlyph}" />
+                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderErrorSeverityIconForeground}" />
+                        </Trigger>
+                        <Trigger Property="Icon" Value="Warning">
+                            <Setter TargetName="IconBackground" Property="Text" Value="{StaticResource MessageBoxHeaderWarningBackgroundGlyph}" />
+                            <Setter TargetName="IconBackground" Property="Foreground" Value="{StaticResource MessageBoxHeaderWarningSeverityIconBackground}" />
+                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderWarningIconGlyph}" />
+                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderWarningSeverityIconForeground}" />
+                        </Trigger>
+                        <Trigger Property="Icon" Value="Success">
+                            <Setter TargetName="IconBackground" Property="Foreground" Value="{DynamicResource MessageBoxHeaderSuccessSeverityIconBackground}" />
+                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderSuccessIconGlyph}" />
+                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderSuccessSeverityIconForeground}" />
+                        </Trigger>
+                        <Trigger Property="Icon" Value="None">
+                            <Setter TargetName="StandardIconArea" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

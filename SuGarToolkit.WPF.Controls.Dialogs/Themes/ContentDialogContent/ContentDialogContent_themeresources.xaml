@@ -1,0 +1,38 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:Double x:Key="ContentDialogMinWidth">320</system:Double>
+    <system:Double x:Key="ContentDialogMaxWidth">548</system:Double>
+    <system:Double x:Key="ContentDialogMinHeight">184</system:Double>
+    <system:Double x:Key="ContentDialogMaxHeight">756</system:Double>
+    <system:Double x:Key="ContentDialogButtonMinWidth">130</system:Double>
+    <system:Double x:Key="ContentDialogButtonMaxWidth">202</system:Double>
+    <system:Double x:Key="ContentDialogButtonMinHeight">32</system:Double>
+    <system:Double x:Key="ContentDialogButtonHeight">32</system:Double>
+    <system:Double x:Key="ContentDialogTitleMaxHeight">56</system:Double>
+    <Thickness x:Key="ContentDialogTitleMargin">0,0,0,12</Thickness>
+    <Thickness x:Key="ContentDialogWindowTitlePadding">24,24,24,0</Thickness>
+    <Thickness x:Key="ContentDialogWindowContentPadding">24,0,24,24</Thickness>
+    <Thickness x:Key="ContentDialogPadding">24</Thickness>
+    <Thickness x:Key="ContentDialogSeparatorThickness">0,0,0,1</Thickness>
+    <GridLength x:Key="ContentDialogButtonSpacing">8</GridLength>
+    <Color x:Key="ContentDialogWindowCommandSpaceBackground">#0F000000</Color>
+    <Color x:Key="ContentDialogWindowSeparatorBorderColor">#19000000</Color>
+    <SolidColorBrush x:Key="ContentDialogWindowSeparatorBorderBrush" Color="{StaticResource ContentDialogWindowSeparatorBorderColor}" />
+    <!--<SolidColorBrush x:Key="ContentDialogWindowTopOverlay" Color="{DynamicResource LayerFillColorDefault}" />-->
+    <LinearGradientBrush x:Key="ContentDialogWindowTopOverlay" MappingMode="Absolute" StartPoint="0,10" EndPoint="0,30">
+        <GradientStop Offset="0.0" Color="Transparent" />
+        <GradientStop Offset="1.0" Color="{DynamicResource LayerFillColorDefault}" />
+    </LinearGradientBrush>
+    <SolidColorBrush
+        x:Key="ContentDialogWindowCommandSpaceBackgroundBrush"
+        Opacity="0.5"
+        Color="{StaticResource ContentDialogWindowCommandSpaceBackground}" />
+
+</ResourceDictionary>
