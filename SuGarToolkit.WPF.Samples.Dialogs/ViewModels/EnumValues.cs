@@ -1,8 +1,5 @@
 ﻿using SuGarToolkit.WPF.Controls.Dialogs;
 
-using System;
-using System.Collections.Generic;
-
 namespace SuGarToolkit.WPF.Sample.Dialogs.ViewModels;
 
 public class EnumValues

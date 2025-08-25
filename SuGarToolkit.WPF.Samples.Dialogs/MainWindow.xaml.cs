@@ -1,10 +1,7 @@
-﻿using SuGarToolkit.WPF.Controls.Dialogs;
-using SuGarToolkit.WPF.Samples.Dialogs.Views;
+﻿using SuGarToolkit.WPF.Samples.Dialogs.Views;
 
 using System.Windows;
 using System.Windows.Controls;
-
-using MessageBoxResult = SuGarToolkit.WPF.Controls.Dialogs.MessageBoxResult;
 
 namespace SuGarToolkit.WPF.Samples.Dialogs;
 
