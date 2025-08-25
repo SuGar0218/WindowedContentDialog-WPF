@@ -2,6 +2,8 @@
 
 Show ContentDialog similar to WinUI3 and MessageBox in WinUI3 style in a separate window.
 
+There has been WindowedContentDialog for WinUI 3: https://github.com/SuGar0218/WindowedContentDialog
+
 This library depends on the new Fluent style provided for WPF in .NET 9.
 
 ``` xaml
@@ -13,8 +15,6 @@ This library depends on the new Fluent style provided for WPF in .NET 9.
 ## Attention namespace
 
 Some class names are the same as them in namespace ```System.Windows```, such as ```MessageBox``` and ```MessageBoxResult```.
-
-There has been WindowedContentDialog for WinUI 3: https://github.com/SuGar0218/WindowedContentDialog
 
 If you want to use Fluent style MessageBox instead of traditional MessageBox:
 
