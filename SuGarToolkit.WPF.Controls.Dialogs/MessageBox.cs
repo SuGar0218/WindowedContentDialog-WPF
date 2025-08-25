@@ -2,9 +2,9 @@
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;
 
-public class FluentMessageBox : MessageBoxBase
+public class MessageBox : MessageBoxBase
 {
-    protected FluentMessageBox(
+    protected MessageBox(
         bool isModal,
         Window? owner,
         object? content,
@@ -19,7 +19,7 @@ public class FluentMessageBox : MessageBoxBase
         _options = options;
     }
 
-    protected FluentMessageBox(
+    protected MessageBox(
         bool isModal,
         Window? owner,
         string? message,
@@ -209,7 +209,7 @@ public class FluentMessageBox : MessageBoxBase
         MessageBoxDefaultButton? defaultButton,
         MessageBoxOptions options)
     {
-        return new FluentMessageBox(isModal, owner, message, title, buttons, icon, defaultButton, options).Show();
+        return new MessageBox(isModal, owner, message, title, buttons, icon, defaultButton, options).Show();
     }
 
     /// <summary>
@@ -237,7 +237,7 @@ public class FluentMessageBox : MessageBoxBase
         MessageBoxDefaultButton? defaultButton,
         MessageBoxOptions options)
     {
-        return new FluentMessageBox(isModal, owner, content, title, buttons, icon, defaultButton, options).Show();
+        return new MessageBox(isModal, owner, content, title, buttons, icon, defaultButton, options).Show();
     }
 
     protected override StandaloneContentDialogBase CreateDialog() => new WindowedContentDialog
