@@ -12,7 +12,7 @@ This library depends on the new Fluent style provided for WPF in .NET 9.
 
 ## Attention namespace
 
-Some class names is the same as them in namespace ```System.Windows```, such as ```MessageBox``` and ```MessageBoxResult```.
+Some class names are the same as them in namespace ```System.Windows```, such as ```MessageBox``` and ```MessageBoxResult```.
 
 There has been WindowedContentDialog for WinUI 3: https://github.com/SuGar0218/WindowedContentDialog
 
