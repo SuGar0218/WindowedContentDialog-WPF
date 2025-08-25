@@ -61,10 +61,7 @@ public class WindowedContentDialog : StandaloneContentDialogBase
 
             PrimaryButtonStyle = PrimaryButtonStyle,
             SecondaryButtonStyle = SecondaryButtonStyle,
-            CloseButtonStyle = CloseButtonStyle,
-
-            //SystemBackdrop = SystemBackdrop,
-            //RequestedTheme = RequestedTheme
+            CloseButtonStyle = CloseButtonStyle
         };
 
         dialogWindow.PrimaryButtonClick += PrimaryButtonClick;
@@ -74,10 +71,10 @@ public class WindowedContentDialog : StandaloneContentDialogBase
         dialogWindow.Owner = OwnerWindow;
         dialogWindow.WindowStartupLocation = CenterInParent ? (OwnerWindow is null ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner) : WindowStartupLocation.Manual;
 
-        if (!IsTitleBarVisible)
-        {
+        //if (!IsTitleBarVisible)
+        //{
 
-        }
+        //}
 
         if (DisableBehind && OwnerWindow?.Content is Control control)
         {
@@ -144,7 +141,7 @@ public class WindowedContentDialog : StandaloneContentDialogBase
         //    }
         //}
 
-        if (!IsModal)
+        if (!IsModal || OwnerWindow is null)
         {
             dialogWindow.Show();
             return ContentDialogResult.None;
