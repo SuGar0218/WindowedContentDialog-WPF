@@ -6,15 +6,14 @@
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:my="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToolkit.WPF.Controls.Dialogs"
-    Title="MainWindow"
-    SizeToContent="WidthAndHeight"
+    Title="SuGarToolkit.WPF.Controls.Dialogs"
     mc:Ignorable="d">
 
-    <WindowChrome.WindowChrome>
+    <!--<WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="-1" NonClientFrameEdges="Left,Right" />
-    </WindowChrome.WindowChrome>
+    </WindowChrome.WindowChrome>-->
 
-    <my:ContentDialogContent
+    <!--<my:ContentDialogContent
         Title="WindowedContentDialog for WPF"
         CloseButtonClick="ContentDialogContent_CloseButtonClick"
         CloseButtonText="Close"
@@ -35,5 +34,7 @@
                 </StackPanel>
             </StackPanel>
         </my:ContentDialogContent.Content>
-    </my:ContentDialogContent>
+    </my:ContentDialogContent>-->
+
+    <Frame Loaded="Frame_Loaded" />
 </Window>

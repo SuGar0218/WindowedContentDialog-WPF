@@ -1,0 +1,134 @@
+﻿<Page
+    x:Class="SuGarToolkit.WPF.Samples.Dialogs.Views.SamplePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:SuGarToolkit.WPF.Sample.Dialogs.ViewModels"
+    Title="SamplePage"
+    d:DataContext="{d:DesignInstance vm:SampleViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Margin="36,28">
+            <Expander>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            x:Name="ShowMessageBoxButton"
+                            Grid.Column="0"
+                            x:FieldModifier="private"
+                            Click="ShowMessageBoxButton_Click"
+                            Content="MessageBox"
+                            Style="{DynamicResource AccentButtonStyle}" />
+                        <TextBlock
+                            x:Name="MessageBoxResultBox"
+                            VerticalAlignment="Center"
+                            x:FieldModifier="private" />
+                    </StackPanel>
+                </Expander.Header>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel MinWidth="300">
+                        <TextBlock Text="标题" />
+                        <TextBox
+                            AcceptsReturn="True"
+                            Text="{Binding MessageBoxSettings.Title, Mode=TwoWay}"
+                            TextWrapping="Wrap" />
+                        <TextBlock Text="内容" />
+                        <TextBox
+                            AcceptsReturn="True"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            Text="{Binding MessageBoxSettings.Content, Mode=TwoWay}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel MinWidth="200">
+                        <StackPanel.Resources>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="ComboBox">
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Text="按扭组合" />
+                        <ComboBox ItemsSource="{x:Static vm:EnumValues.MessageBoxButtons}" SelectedItem="{Binding MessageBoxSettings.Buttons, Mode=TwoWay}" />
+                        <TextBlock Text="默认按钮" />
+                        <ComboBox ItemsSource="{x:Static vm:EnumValues.MessageBoxDefaultButtons}" SelectedItem="{Binding MessageBoxSettings.DefaultButton, Mode=TwoWay}" />
+                        <TextBlock Text="图标" />
+                        <ComboBox ItemsSource="{x:Static vm:EnumValues.MessageBoxImages}" SelectedItem="{Binding MessageBoxSettings.Image, Mode=TwoWay}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <CheckBox Content="以此为父窗口" IsChecked="{Binding MessageBoxSettings.IsChild, Mode=TwoWay}" />
+                        <CheckBox
+                            Content="模态窗口（无父窗口时无效）"
+                            IsChecked="{Binding MessageBoxSettings.IsModal, Mode=TwoWay}"
+                            IsEnabled="{Binding MessageBoxSettings.IsChild, Mode=OneWay}" />
+                        <CheckBox Content="显示在父窗口中间" IsChecked="{Binding MessageBoxSettings.CenterInParent, Mode=TwoWay}" />
+                        <!--<CheckBox Content="禁用父窗口（无父窗口时无效）" IsChecked="{Binding MessageBoxSettings.DisableBehind, Mode=TwoWay}" />-->
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+
+            <Expander>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            Grid.Column="0"
+                            Click="ShowContentDialogButton_Click"
+                            Content="WindowedContentDialog"
+                            Style="{DynamicResource AccentButtonStyle}" />
+                        <TextBlock
+                            x:Name="ContentDialogResultBox"
+                            VerticalAlignment="Center"
+                            x:FieldModifier="private" />
+                    </StackPanel>
+                </Expander.Header>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel MinWidth="300">
+                        <TextBlock Text="标题" />
+                        <TextBox
+                            AcceptsReturn="True"
+                            Text="{Binding ContentDialogSettings.Title, Mode=TwoWay}"
+                            TextWrapping="Wrap" />
+                        <TextBlock Text="内容" />
+                        <TextBox
+                            AcceptsReturn="True"
+                            Text="{Binding ContentDialogSettings.Message, Mode=TwoWay}"
+                            TextWrapping="Wrap" />
+                        <TextBlock Text="PrimaryButtonText" />
+                        <TextBox Text="{Binding ContentDialogSettings.PrimaryButtonText, Mode=TwoWay}" />
+                        <TextBlock Text="SecondaryButtonText" />
+                        <TextBox Text="{Binding ContentDialogSettings.SecondaryButtonText, Mode=TwoWay}" />
+                        <TextBlock Text="CloseButtonText" />
+                        <TextBox Text="{Binding ContentDialogSettings.CloseButtonText, Mode=TwoWay}" />
+                        <TextBlock Text="默认按钮" />
+                        <ComboBox ItemsSource="{x:Static vm:EnumValues.ContentDialogButtons}" SelectedItem="{Binding ContentDialogSettings.DefaultButton, Mode=TwoWay}" />
+                    </StackPanel>
+                    <!--<StackPanel MinWidth="200">
+                        <StackPanel.Resources>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="ComboBox">
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            </Style>
+                        </StackPanel.Resources>
+                    </StackPanel>-->
+                    <StackPanel>
+                        <CheckBox Content="点击 PrimaryButton 后不关闭" IsChecked="{Binding ContentDialogSettings.PrimaryButtonNotClose, Mode=TwoWay}" />
+                        <CheckBox Content="点击 SecondaryButton 后不关闭" IsChecked="{Binding ContentDialogSettings.SecondaryButtonNotClose, Mode=TwoWay}" />
+                        <CheckBox Content="以此为父窗口" IsChecked="{Binding ContentDialogSettings.IsChild, Mode=TwoWay}" />
+                        <CheckBox Content="显示在父窗口中间" IsChecked="{Binding ContentDialogSettings.CenterInParent, Mode=TwoWay}" />
+                        <CheckBox
+                            Content="模态窗口（无父窗口时无效）"
+                            IsChecked="{Binding ContentDialogSettings.IsModal, Mode=TwoWay}"
+                            IsEnabled="{Binding ContentDialogSettings.IsChild, Mode=OneWay}" />
+                        <!--<CheckBox
+                Content="禁用父窗口（无父窗口时无效）"
+                IsChecked="{Binding ContentDialogSettings.DisableBehind, Mode=TwoWay}"
+                IsEnabled="{Binding ContentDialogSettings.IsChild, Mode=OneWay}" />-->
+                    </StackPanel>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
