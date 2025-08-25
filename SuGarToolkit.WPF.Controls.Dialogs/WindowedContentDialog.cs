@@ -76,18 +76,18 @@ public class WindowedContentDialog : StandaloneContentDialogBase
 
         //}
 
-        if (DisableBehind && OwnerWindow?.Content is Control control)
-        {
-            bool isOriginallyEnabled = control.IsEnabled;
-            dialogWindow.Opened += (window, e) =>
-            {
-                control.IsEnabled = false;
-            };
-            dialogWindow.Closed += (o, e) =>
-            {
-                control.IsEnabled = isOriginallyEnabled;
-            };
-        }
+        //if (DisableBehind && OwnerWindow?.Content is Control control)
+        //{
+        //    bool isOriginallyEnabled = control.IsEnabled;
+        //    dialogWindow.Opened += (window, e) =>
+        //    {
+        //        control.IsEnabled = false;
+        //    };
+        //    dialogWindow.Closed += (o, e) =>
+        //    {
+        //        control.IsEnabled = isOriginallyEnabled;
+        //    };
+        //}
 
         //if (SmokeLayerKind is not ContentDialogSmokeLayerKind.None && OwnerWindow?.Content?.XamlRoot is not null)
         //{

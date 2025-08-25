@@ -17,7 +17,7 @@ public partial class ContentDialogWindow : Window
     public event CancelEventHandler? SecondaryButtonClick;
     public event CancelEventHandler? CloseButtonClick;
 
-    public event RoutedEventHandler? Opened;
+    //public event RoutedEventHandler? Opened;
 
     public ContentDialogResult Result { get; private set; }
 
