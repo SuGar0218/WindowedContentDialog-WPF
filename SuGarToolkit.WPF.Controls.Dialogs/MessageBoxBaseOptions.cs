@@ -13,7 +13,7 @@ public class MessageBoxBaseOptions
 
     public UIElement? CustomSmokeLayer { get; set; }
 
-    //public ElementTheme RequestedTheme { get; set; }
+    public ThemeMode ThemeMode { get; set; }
 
     public FlowDirection FlowDirection { get; set; }
 }

@@ -53,7 +53,7 @@ public abstract class MessageBoxBase
         //_dialog.SmokeLayerKind = _options.SmokeLayerKind;
         _dialog.CustomSmokeLayer = _options.CustomSmokeLayer;
         _dialog.FlowDirection = _options.FlowDirection;
-        //_dialog.RequestedTheme = DetermineTheme();
+        _dialog.ThemeMode = _options.ThemeMode;
         DetermineDefaultButton();
         DetermineButtonText();
         return ShowAndWaitForResult();

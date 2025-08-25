@@ -60,7 +60,9 @@ public class WindowedContentDialog : StandaloneContentDialogBase
 
             PrimaryButtonStyle = PrimaryButtonStyle,
             SecondaryButtonStyle = SecondaryButtonStyle,
-            CloseButtonStyle = CloseButtonStyle
+            CloseButtonStyle = CloseButtonStyle,
+
+            ThemeMode = ThemeMode
         };
 
         dialogWindow.PrimaryButtonClick += PrimaryButtonClick;

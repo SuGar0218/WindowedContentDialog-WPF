@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup>
+    <_LastSelectedProfileId>D:\Documents\Code\C#\WPF\SuGarToolkit\SuGarToolkit.WPF\SuGarToolkit.WPF.Samples.Dialogs\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Update="LoremIpsumPage.xaml.cs">
+    <Compile Update="Views\LoremIpsumPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\SamplePage.xaml.cs">

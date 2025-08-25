@@ -37,7 +37,7 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Border
-                                Background="{DynamicResource ContentDialogWindowTopOverlay}"
+                                Background="{DynamicResource LayerFillColorDefaultBrush}"
                                 BorderBrush="{StaticResource ContentDialogWindowSeparatorBorderBrush}"
                                 BorderThickness="{StaticResource ContentDialogSeparatorThickness}">
                                 <Grid>

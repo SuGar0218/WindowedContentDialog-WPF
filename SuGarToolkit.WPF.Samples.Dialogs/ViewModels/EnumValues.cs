@@ -1,6 +1,8 @@
 ﻿using SuGarToolkit.WPF.Controls.Dialogs;
 
-namespace SuGarToolkit.WPF.Sample.Dialogs.ViewModels;
+using System.Windows;
+
+namespace SuGarToolkit.WPF.Samples.Dialogs.ViewModels;
 
 public class EnumValues
 {
@@ -11,4 +13,6 @@ public class EnumValues
     public static readonly MessageBoxIcon[] MessageBoxImages = Enum.GetValues<MessageBoxIcon>();
 
     public static readonly List<ContentDialogButton> ContentDialogButtons = [.. Enum.GetValues<ContentDialogButton>()];
+
+    public static readonly List<ThemeMode> ThemeModes = [ThemeMode.Dark, ThemeMode.Light, ThemeMode.None, ThemeMode.System];
 }

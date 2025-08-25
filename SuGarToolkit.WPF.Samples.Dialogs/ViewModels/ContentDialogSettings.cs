@@ -2,7 +2,9 @@
 
 using SuGarToolkit.WPF.Controls.Dialogs;
 
-namespace SuGarToolkit.Sample.Dialogs.ViewModels;
+using System.Windows;
+
+namespace SuGarToolkit.WPF.Samples.Dialogs.ViewModels;
 
 public partial class ContentDialogSettings : ObservableObject
 {
@@ -33,6 +35,5 @@ public partial class ContentDialogSettings : ObservableObject
 
     public bool CenterInParent { get; set; } = true;
 
-    [ObservableProperty]
-    public partial bool ShouldConstrainToRootBounds { get; set; } = true;
+    public ThemeMode ThemeMode { get; set; }
 }

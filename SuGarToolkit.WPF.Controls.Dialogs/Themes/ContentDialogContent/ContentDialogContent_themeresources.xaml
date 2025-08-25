@@ -22,10 +22,10 @@
     <Color x:Key="ContentDialogWindowSeparatorBorderColor">#19000000</Color>
     <SolidColorBrush x:Key="ContentDialogWindowSeparatorBorderBrush" Color="{StaticResource ContentDialogWindowSeparatorBorderColor}" />
     <!--<SolidColorBrush x:Key="ContentDialogWindowTopOverlay" Color="{DynamicResource LayerFillColorDefault}" />-->
-    <LinearGradientBrush x:Key="ContentDialogWindowTopOverlay" MappingMode="Absolute" StartPoint="0,10" EndPoint="0,30">
+    <!--<LinearGradientBrush x:Key="ContentDialogWindowTopOverlay" MappingMode="Absolute" StartPoint="0,10" EndPoint="0,30">
         <GradientStop Offset="0.0" Color="Transparent" />
         <GradientStop Offset="1.0" Color="{DynamicResource LayerFillColorDefault}" />
-    </LinearGradientBrush>
+    </LinearGradientBrush>-->
     <SolidColorBrush
         x:Key="ContentDialogWindowCommandSpaceBackgroundBrush"
         Opacity="0.5"

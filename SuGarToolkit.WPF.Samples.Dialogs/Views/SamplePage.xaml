@@ -5,15 +5,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:SuGarToolkit.WPF.Sample.Dialogs.ViewModels"
+    xmlns:vm="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.ViewModels"
     Title="SamplePage"
     d:DataContext="{d:DesignInstance vm:SampleViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <ScrollViewer>
         <StackPanel Margin="36,28">
+            <TextBlock Text="应用程序主题" />
+            <ComboBox
+                x:Name="ThemeModeComboBox"
+                HorizontalAlignment="Left"
+                x:FieldModifier="private"
+                ItemsSource="{x:Static vm:EnumValues.ThemeModes}"
+                SelectionChanged="ComboBox_SelectionChanged" />
             <Expander>
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
@@ -57,6 +65,8 @@
                         <ComboBox ItemsSource="{x:Static vm:EnumValues.MessageBoxDefaultButtons}" SelectedItem="{Binding MessageBoxSettings.DefaultButton, Mode=TwoWay}" />
                         <TextBlock Text="图标" />
                         <ComboBox ItemsSource="{x:Static vm:EnumValues.MessageBoxImages}" SelectedItem="{Binding MessageBoxSettings.Image, Mode=TwoWay}" />
+                        <TextBlock Text="主题色" />
+                        <ComboBox ItemsSource="{x:Static vm:EnumValues.ThemeModes}" SelectedItem="{Binding MessageBoxSettings.ThemeMode, Mode=TwoWay}" />
                     </StackPanel>
                     <StackPanel>
                         <CheckBox Content="以此为父窗口" IsChecked="{Binding MessageBoxSettings.IsChild, Mode=TwoWay}" />
@@ -105,6 +115,8 @@
                         <TextBox Text="{Binding ContentDialogSettings.CloseButtonText, Mode=TwoWay}" />
                         <TextBlock Text="默认按钮" />
                         <ComboBox ItemsSource="{x:Static vm:EnumValues.ContentDialogButtons}" SelectedItem="{Binding ContentDialogSettings.DefaultButton, Mode=TwoWay}" />
+                        <TextBlock Text="主题色" />
+                        <ComboBox ItemsSource="{x:Static vm:EnumValues.ThemeModes}" SelectedItem="{Binding ContentDialogSettings.ThemeMode, Mode=TwoWay}" />
                     </StackPanel>
                     <!--<StackPanel MinWidth="200">
                         <StackPanel.Resources>

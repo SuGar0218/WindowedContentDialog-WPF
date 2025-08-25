@@ -24,7 +24,7 @@ public abstract class StandaloneContentDialogBase
     public Style PrimaryButtonStyle { get; set; } = DefaultButtonStyle;
     public Style SecondaryButtonStyle { get; set; } = DefaultButtonStyle;
     public Style CloseButtonStyle { get; set; } = DefaultButtonStyle;
-    //public ElementTheme RequestedTheme { get; set; }
+    public ThemeMode ThemeMode { get; set; }
     public FlowDirection FlowDirection { get; set; }
 
     /// <summary>

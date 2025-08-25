@@ -1,6 +1,4 @@
-﻿using SuGarToolkit.Sample.Dialogs.ViewModels;
-
-namespace SuGarToolkit.WPF.Samples.Dialogs.ViewModels;
+﻿namespace SuGarToolkit.WPF.Samples.Dialogs.ViewModels;
 
 internal class SampleViewModel
 {

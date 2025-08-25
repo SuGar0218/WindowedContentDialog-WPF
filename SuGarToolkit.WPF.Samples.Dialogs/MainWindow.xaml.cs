@@ -1,7 +1,4 @@
-﻿using SuGarToolkit.WPF.Samples.Dialogs.Views;
-
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace SuGarToolkit.WPF.Samples.Dialogs;
 
@@ -9,49 +6,14 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
+        ThemeMode = Application.Current.ThemeMode;
         InitializeComponent();
     }
 
-    //private void ContentDialogContent_PrimaryButtonClick(object sender, RoutedEventArgs e)
+    // The content in Frame cannot follow ThemeMode of Window.
+    //private void Frame_Loaded(object sender, RoutedEventArgs e)
     //{
-    //    WindowedContentDialog dialog = new()
-    //    {
-    //        WindowTitle = "WindowedContentDialog",
-    //        Title = "Windowed Content Dialog",
-    //        Content = new LoremIpsumPage().Content,
-    //        PrimaryButtonText = "Primary Button",
-    //        SecondaryButtonText = "Secondary Button",
-    //        CloseButtonText = "Close",
-    //        DefaultButton = ContentDialogButton.Close,
-    //        OwnerWindow = this,
-    //        CenterInParent = true,
-    //        IsModal = true,
-    //    };
-    //    ContentDialogResult result = dialog.Show();
-    //    WindowedContentDialogResultTextBlock.Text = result.ToString();
+    //    Frame frame = (Frame) sender;
+    //    frame.Navigate(new SamplePage());
     //}
-
-    //private void ContentDialogContent_SecondaryButtonClick(object sender, RoutedEventArgs e)
-    //{
-    //    MessageBoxResult result = FluentMessageBox.Show(
-    //        isModal: true,
-    //        this,
-    //        "This is a MessageBox in Fluent Design style.",
-    //        "Fluent Message Box",
-    //        MessageBoxButtons.YesNoCancel,
-    //        MessageBoxIcon.Information,
-    //        MessageBoxDefaultButton.Button1);
-    //    MessageBoxResultTextBlock.Text = result.ToString();
-    //}
-
-    private void ContentDialogContent_CloseButtonClick(object sender, RoutedEventArgs e)
-    {
-        Close();
-    }
-
-    private void Frame_Loaded(object sender, RoutedEventArgs e)
-    {
-        Frame frame = (Frame) sender;
-        frame.Navigate(new SamplePage());
-    }
 }

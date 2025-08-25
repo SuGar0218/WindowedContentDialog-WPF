@@ -11,7 +11,7 @@
     mc:Ignorable="d">
 
     <WindowChrome.WindowChrome>
-        <WindowChrome GlassFrameThickness="-1" NonClientFrameEdges="Left,Right" />
+        <WindowChrome GlassFrameThickness="-1" NonClientFrameEdges="Left,Right,Bottom" />
     </WindowChrome.WindowChrome>
 
     <local:ContentDialogContent

@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:my="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToolkit.WPF.Controls.Dialogs"
+    xmlns:v="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.Views"
     Title="SuGarToolkit.WPF.Controls.Dialogs"
     mc:Ignorable="d">
 
@@ -13,28 +14,8 @@
         <WindowChrome GlassFrameThickness="-1" NonClientFrameEdges="Left,Right" />
     </WindowChrome.WindowChrome>-->
 
-    <!--<my:ContentDialogContent
-        Title="WindowedContentDialog for WPF"
-        CloseButtonClick="ContentDialogContent_CloseButtonClick"
-        CloseButtonText="Close"
-        DefaultButton="Close"
-        PrimaryButtonClick="ContentDialogContent_PrimaryButtonClick"
-        PrimaryButtonText="WindowedContentDialog"
-        SecondaryButtonClick="ContentDialogContent_SecondaryButtonClick"
-        SecondaryButtonText="MessageBox">
-        <my:ContentDialogContent.Content>
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="WindowedContentDialog: " />
-                    <TextBlock x:Name="WindowedContentDialogResultTextBlock" x:FieldModifier="private" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="MessageBox: " />
-                    <TextBlock x:Name="MessageBoxResultTextBlock" x:FieldModifier="private" />
-                </StackPanel>
-            </StackPanel>
-        </my:ContentDialogContent.Content>
-    </my:ContentDialogContent>-->
+    <!--  The content in Frame cannot follow ThemeMode of Window  -->
+    <!--<Frame Loaded="Frame_Loaded" />-->
+    <v:SamplePage />
 
-    <Frame Loaded="Frame_Loaded" />
 </Window>

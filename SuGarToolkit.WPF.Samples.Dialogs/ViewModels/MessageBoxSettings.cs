@@ -2,7 +2,9 @@
 
 using SuGarToolkit.WPF.Controls.Dialogs;
 
-namespace SuGarToolkit.Sample.Dialogs.ViewModels;
+using System.Windows;
+
+namespace SuGarToolkit.WPF.Samples.Dialogs.ViewModels;
 
 public partial class MessageBoxSettings : ObservableObject
 {
@@ -26,4 +28,6 @@ public partial class MessageBoxSettings : ObservableObject
     public bool ShouldConstrainToRootBounds { get; set; } = true;
 
     public bool CenterInParent { get; set; } = true;
+
+    public ThemeMode ThemeMode { get; set; }
 }

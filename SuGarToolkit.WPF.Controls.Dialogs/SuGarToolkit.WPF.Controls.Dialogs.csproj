@@ -11,6 +11,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<NoWarn>WPF0001</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute.csproj" />
+		<ProjectReference Include="..\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute.csproj" PrivateAssets="all" />
 		<ProjectReference Include="..\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 

@@ -15,8 +15,8 @@
     <SolidColorBrush x:Key="MessageBoxHeaderErrorSeverityIconBackground" Color="{DynamicResource SystemFillColorCritical}" />
     <SolidColorBrush x:Key="MessageBoxHeaderWarningSeverityIconBackground" Color="#FCE100" />
     <SolidColorBrush x:Key="MessageBoxHeaderSuccessSeverityIconBackground" Color="{DynamicResource SystemFillColorSuccess}" />
-    <SolidColorBrush x:Key="MessageBoxHeaderInformationalSeverityIconBackground" Color="{DynamicResource {x:Static SystemColors.AccentColorKey}}" />
-    <SolidColorBrush x:Key="MessageBoxHeaderQuestionalSeverityIconBackground" Color="{DynamicResource {x:Static SystemColors.AccentColorKey}}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderInformationalSeverityIconBackground" Color="{DynamicResource {x:Static SystemColors.AccentColorLight1Key}}" />
+    <SolidColorBrush x:Key="MessageBoxHeaderQuestionalSeverityIconBackground" Color="{DynamicResource {x:Static SystemColors.AccentColorLight1Key}}" />
     <SolidColorBrush x:Key="MessageBoxHeaderErrorSeverityIconForeground" Color="{DynamicResource TextFillColorInverse}" />
     <SolidColorBrush x:Key="MessageBoxHeaderWarningSeverityIconForeground" Color="{DynamicResource TextFillColorPrimary}" />
     <SolidColorBrush x:Key="MessageBoxHeaderSuccessSeverityIconForeground" Color="{DynamicResource TextFillColorInverse}" />

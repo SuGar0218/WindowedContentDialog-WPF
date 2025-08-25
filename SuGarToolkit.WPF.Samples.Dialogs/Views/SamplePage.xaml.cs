@@ -32,9 +32,9 @@ public partial class SamplePage : Page
             viewModel.MessageBoxSettings.DefaultButton,
             new MessageBoxOptions
             {
-                IsTitleBarVisible = viewModel.MessageBoxSettings.IsTitleBarVisible,
+                //IsTitleBarVisible = viewModel.MessageBoxSettings.IsTitleBarVisible,
                 CenterInParent = viewModel.MessageBoxSettings.CenterInParent,
-
+                ThemeMode = viewModel.MessageBoxSettings.ThemeMode,
                 //DisableBehind = viewModel.MessageBoxSettings.DisableBehind,
             });
         MessageBoxResultBox.Text = result.ToString();
@@ -56,6 +56,7 @@ public partial class SamplePage : Page
             OwnerWindow = viewModel.ContentDialogSettings.IsChild ? Application.Current.MainWindow : null,
             IsTitleBarVisible = viewModel.ContentDialogSettings.IsTitleBarVisible,
             CenterInParent = viewModel.ContentDialogSettings.CenterInParent,
+            ThemeMode = viewModel.ContentDialogSettings.ThemeMode,
 
             //DisableBehind = viewModel.ContentDialogSettings.DisableBehind,
         };
@@ -69,5 +70,15 @@ public partial class SamplePage : Page
         }
         ContentDialogResult result = dialog.Show(viewModel.ContentDialogSettings.IsModal);
         ContentDialogResultBox.Text = result.ToString();
+    }
+
+    private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        Application.Current.MainWindow.ThemeMode = (ThemeMode) e.AddedItems[0]!;
+    }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        ThemeModeComboBox.SelectedItem = Application.Current.MainWindow.ThemeMode;
     }
 }
