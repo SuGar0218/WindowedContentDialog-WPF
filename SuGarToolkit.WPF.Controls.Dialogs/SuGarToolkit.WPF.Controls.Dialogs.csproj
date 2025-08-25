@@ -6,7 +6,11 @@
 		<UseWPF>true</UseWPF>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>preview</LangVersion>
-		<Version>0.0.2</Version>
+		<Version>0.0.2-alpha</Version>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -26,6 +30,7 @@
 		</Compile>
 	</ItemGroup>
 	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
 		<EmbeddedResource Update="Strings\MessageBoxButtonText.resx">
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>MessageBoxButtonText.Designer.cs</LastGenOutput>
