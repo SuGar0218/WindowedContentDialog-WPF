@@ -12,7 +12,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-		<PackageReference Include="SuGarToolkit.WPF.Controls.Dialogs" Version="0.0.2-alpha" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SuGarToolkit.WPF.Controls.Dialogs\SuGarToolkit.WPF.Controls.Dialogs.csproj" />
 	</ItemGroup>
 
 </Project>

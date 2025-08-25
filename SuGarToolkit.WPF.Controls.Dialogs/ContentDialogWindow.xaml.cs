@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using System.Windows.Shell;
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;
 
@@ -7,6 +8,14 @@ public partial class ContentDialogWindow : Window
 {
     public ContentDialogWindow()
     {
+        if (Environment.OSVersion.Version.Major >= 10)
+        {
+            WindowChrome.SetWindowChrome(this, new WindowChrome()
+            {
+                GlassFrameThickness = new Thickness(-1),
+                NonClientFrameEdges = NonClientFrameEdges.Left | NonClientFrameEdges.Right | NonClientFrameEdges.Bottom
+            });
+        }
         InitializeComponent();
         Activated += (sender, args) => content.AfterGotFocus();
         Deactivated += (sender, args) => content.AfterLostFocus();

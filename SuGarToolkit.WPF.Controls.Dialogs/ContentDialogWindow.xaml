@@ -10,9 +10,9 @@
     SizeToContent="WidthAndHeight"
     mc:Ignorable="d">
 
-    <WindowChrome.WindowChrome>
+    <!--<WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="-1" NonClientFrameEdges="Left,Right,Bottom" />
-    </WindowChrome.WindowChrome>
+    </WindowChrome.WindowChrome>-->
 
     <local:ContentDialogContent
         x:Name="content"
