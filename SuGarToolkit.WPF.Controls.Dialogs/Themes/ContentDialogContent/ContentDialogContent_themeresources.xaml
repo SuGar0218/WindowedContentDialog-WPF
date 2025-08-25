@@ -3,10 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=netstandard">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
-    </ResourceDictionary.MergedDictionaries>
-
     <system:Double x:Key="ContentDialogMinWidth">320</system:Double>
     <system:Double x:Key="ContentDialogMaxWidth">548</system:Double>
     <system:Double x:Key="ContentDialogMinHeight">184</system:Double>

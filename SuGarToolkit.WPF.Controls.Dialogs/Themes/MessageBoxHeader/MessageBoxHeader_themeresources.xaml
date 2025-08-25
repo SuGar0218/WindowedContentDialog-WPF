@@ -5,10 +5,6 @@
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs"
     xmlns:system="clr-namespace:System;assembly=netstandard">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
-    </ResourceDictionary.MergedDictionaries>
-
     <SolidColorBrush x:Key="SystemFillColorAttentionBrush" Color="{DynamicResource SystemAccentColorLight2}" />
 
     <SolidColorBrush x:Key="MessageBoxHeaderErrorSeverityBackgroundBrush" Color="{DynamicResource SystemFillColorCriticalBackground}" />

@@ -189,35 +189,6 @@ public partial class ContentDialogContent : ContentControl
     private ContentDialogButton DetermineDefaultButtonState()
     {
         return DefaultButton;
-        //if (ButtonsVisibilityState is ContentDialogButtonsVisibilityState.NoneVisible)
-        //{
-        //    VisualStateManager.GoToState(this, "NoDefaultButton", false);
-        //    return "NoDefaultButton";
-        //}
-        //switch (DefaultButton)
-        //{
-        //    case ContentDialogButton.Primary:
-        //        VisualStateManager.GoToState(this, "PrimaryAsDefaultButton", false);
-        //        //PrimaryButton.KeyboardAccelerators.Add(new KeyboardAccelerator { Key = Windows.System.VirtualKey.Enter });
-        //        PrimaryButton.Focus();
-        //        return "PrimaryAsDefaultButton";
-        //    case ContentDialogButton.Secondary:
-        //        VisualStateManager.GoToState(this, "SecondaryAsDefaultButton", false);
-        //        //SecondaryButton.KeyboardAccelerators.Add(new KeyboardAccelerator { Key = Windows.System.VirtualKey.Enter });
-        //        SecondaryButton.Focus();
-        //        return "SecondaryAsDefaultButton";
-        //    case ContentDialogButton.Close:
-        //        VisualStateManager.GoToState(this, "CloseAsDefaultButton", false);
-        //        //CloseButton.KeyboardAccelerators.Add(new KeyboardAccelerator { Key = Windows.System.VirtualKey.Enter });
-        //        CloseButton.Focus();
-        //        return "CloseAsDefaultButton";
-        //    case ContentDialogButton.None:
-        //        VisualStateManager.GoToState(this, "NoDefaultButton", false);
-        //        return "NoDefaultButton";
-        //    default:
-        //        VisualStateManager.GoToState(this, "NoDefaultButton", false);
-        //        return "NoDefaultButton";
-        //}
     }
 
     [DependencyProperty]
