@@ -7,14 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.Controls.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator", "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyGenerator.csproj", "{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute", "SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute\SuGarToolkit.WPF.SourceGenerators.DependencyPropertyAttribute.csproj", "{71A7DF3F-DC56-424F-9C51-5DC4133940DE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.Samples.Dialogs", "SuGarToolkit.WPF.Samples.Dialogs\SuGarToolkit.WPF.Samples.Dialogs.csproj", "{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuGarToolkit.WPF.SourceGenerators.RelayDependencyPropertyGenerator", "SuGarToolkit.WPF.SourceGenerators.RelayDependencyPropertyGenerator\SuGarToolkit.WPF.SourceGenerators.RelayDependencyPropertyGenerator.csproj", "{CFB14AEB-6478-42C3-97AB-D6C44A5707CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,14 +30,14 @@ Global
 		{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9760EE5-BA45-4A31-B6EA-362DD2BC171C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71A7DF3F-DC56-424F-9C51-5DC4133940DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5093C8AB-1EF1-4A39-9987-68B511E9BAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFB14AEB-6478-42C3-97AB-D6C44A5707CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFB14AEB-6478-42C3-97AB-D6C44A5707CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFB14AEB-6478-42C3-97AB-D6C44A5707CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFB14AEB-6478-42C3-97AB-D6C44A5707CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
