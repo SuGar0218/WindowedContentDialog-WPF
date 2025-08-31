@@ -54,11 +54,8 @@ public partial class SamplePage : Page
             DefaultButton = viewModel.ContentDialogSettings.DefaultButton,
 
             OwnerWindow = viewModel.ContentDialogSettings.IsChild ? Application.Current.MainWindow : null,
-            IsTitleBarVisible = viewModel.ContentDialogSettings.IsTitleBarVisible,
             CenterInParent = viewModel.ContentDialogSettings.CenterInParent,
-            ThemeMode = viewModel.ContentDialogSettings.ThemeMode,
-
-            //DisableBehind = viewModel.ContentDialogSettings.DisableBehind,
+            ThemeMode = viewModel.ContentDialogSettings.ThemeMode
         };
         if (viewModel.ContentDialogSettings.PrimaryButtonNotClose)
         {
@@ -70,6 +67,21 @@ public partial class SamplePage : Page
         }
         ContentDialogResult result = dialog.Show(viewModel.ContentDialogSettings.IsModal);
         ContentDialogResultBox.Text = result.ToString();
+    }
+
+    private void ShowXamlContentDialogButton_Click(object sender, RoutedEventArgs e)
+    {
+        ContentDialogResult result = XamlWindowedContentDialog.Show();
+        ContentDialogResultBox.Text = result.ToString();
+    }
+
+    private void ShowContentDialogWindowButton_Click(object sender, RoutedEventArgs args)
+    {
+        new SampleContentDialogWindow
+        {
+            ThemeMode = Application.Current.MainWindow.ThemeMode
+        }
+        .Show();
     }
 
     private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

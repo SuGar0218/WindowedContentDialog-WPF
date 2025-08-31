@@ -10,10 +10,5 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    // The content in Frame cannot follow ThemeMode of Window.
-    //private void Frame_Loaded(object sender, RoutedEventArgs e)
-    //{
-    //    Frame frame = (Frame) sender;
-    //    frame.Navigate(new SamplePage());
-    //}
+    public static MainWindow Current => (MainWindow) Application.Current.MainWindow;
 }

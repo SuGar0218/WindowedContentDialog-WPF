@@ -7,8 +7,11 @@ namespace SuGarToolkit.WPF.Controls.Dialogs;
 
 public partial class ContentDialogContent : ContentControl
 {
+    static ContentDialogContent() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialogContent), new FrameworkPropertyMetadata(typeof(ContentDialogContent)));
+
     public ContentDialogContent() : base()
     {
+        Loaded += OnLoaded;
         Unloaded += (o, e) => countCustomMeasureAfterLoaded = 0;
     }
 
@@ -39,7 +42,10 @@ public partial class ContentDialogContent : ContentControl
         PrimaryButton.Click += (sender, args) => PrimaryButtonClick?.Invoke(sender, args);
         SecondaryButton.Click += (sender, args) => SecondaryButtonClick?.Invoke(sender, args);
         CloseButton.Click += (sender, args) => CloseButtonClick?.Invoke(sender, args);
+    }
 
+    private void OnLoaded(object sender, RoutedEventArgs args)
+    {
         ButtonsVisibilityState = DetermineButtonsVisibilityState();
         DefaultButtonState = DetermineDefaultButtonState();
     }
@@ -55,7 +61,7 @@ public partial class ContentDialogContent : ContentControl
 
     protected override Size MeasureOverride(Size availableSize)
     {
-        if (countCustomMeasureAfterLoaded > 1)
+        if (countCustomMeasureAfterLoaded > 2)
             return base.MeasureOverride(availableSize);
 
         if (IsLoaded)
@@ -227,12 +233,7 @@ public partial class ContentDialogContent : ContentControl
     [DependencyProperty]
     public partial CornerRadius CornerRadius { get; set; }
 
-    static ContentDialogContent()
-    {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialogContent), new FrameworkPropertyMetadata(typeof(ContentDialogContent)));
-    }
-
-    private static Style DefaultButtonStyle => field ??= (Style) Application.Current.Resources["DefaultButtonStyle"];
+    private static Style DefaultButtonStyle => (Style) Application.Current.Resources["DefaultButtonStyle"];
 }
 
 internal enum ContentDialogButtonsVisibilityState

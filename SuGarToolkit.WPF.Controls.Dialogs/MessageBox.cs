@@ -240,7 +240,7 @@ public class MessageBox : MessageBoxBase
         return new MessageBox(isModal, owner, content, title, buttons, icon, defaultButton, options).Show();
     }
 
-    protected override StandaloneContentDialogBase CreateDialog() => new WindowedContentDialog
+    protected override IStandaloneContentDialog CreateDialog() => new WindowedContentDialog
     {
         WindowTitle = _title,
         IsModal = _isModal,

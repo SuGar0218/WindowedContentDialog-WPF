@@ -2,9 +2,12 @@
     x:Class="SuGarToolkit.WPF.Samples.Dialogs.Views.SamplePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:app="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialogs="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToolkit.WPF.Controls.Dialogs"
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
     xmlns:vm="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.ViewModels"
     Title="SamplePage"
     d:DataContext="{d:DesignInstance vm:SampleViewModel}"
@@ -16,12 +19,14 @@
     <ScrollViewer>
         <StackPanel Margin="36,28">
             <TextBlock Text="应用程序主题" />
+
             <ComboBox
                 x:Name="ThemeModeComboBox"
                 HorizontalAlignment="Left"
                 x:FieldModifier="private"
                 ItemsSource="{x:Static vm:EnumValues.ThemeModes}"
                 SelectionChanged="ComboBox_SelectionChanged" />
+
             <Expander>
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
@@ -75,7 +80,6 @@
                             IsChecked="{Binding MessageBoxSettings.IsModal, Mode=TwoWay}"
                             IsEnabled="{Binding MessageBoxSettings.IsChild, Mode=OneWay}" />
                         <CheckBox Content="显示在父窗口中间" IsChecked="{Binding MessageBoxSettings.CenterInParent, Mode=TwoWay}" />
-                        <!--<CheckBox Content="禁用父窗口（无父窗口时无效）" IsChecked="{Binding MessageBoxSettings.DisableBehind, Mode=TwoWay}" />-->
                     </StackPanel>
                 </StackPanel>
             </Expander>
@@ -87,7 +91,14 @@
                             Grid.Column="0"
                             Click="ShowContentDialogButton_Click"
                             Content="WindowedContentDialog"
-                            Style="{DynamicResource AccentButtonStyle}" />
+                            Style="{DynamicResource AccentButtonStyle}">
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Click="ShowContentDialogButton_Click" Header="WindowedContentDialog used in code-behind" />
+                                    <MenuItem Click="ShowXamlContentDialogButton_Click" Header="WindowedContentDialog declared in XAML with x:Bind" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                         <TextBlock
                             x:Name="ContentDialogResultBox"
                             VerticalAlignment="Center"
@@ -126,6 +137,8 @@
                         </StackPanel.Resources>
                     </StackPanel>-->
                     <StackPanel>
+                        <CheckBox Content="IsrimaryButtonEnabled" IsChecked="{Binding ContentDialogSettings.IsPrimaryButtonEnabled, Mode=TwoWay}" />
+                        <CheckBox Content="IsecondaryButtonEnabled" IsChecked="{Binding ContentDialogSettings.IsSecondaryButtonEnabled, Mode=TwoWay}" />
                         <CheckBox Content="点击 PrimaryButton 后不关闭" IsChecked="{Binding ContentDialogSettings.PrimaryButtonNotClose, Mode=TwoWay}" />
                         <CheckBox Content="点击 SecondaryButton 后不关闭" IsChecked="{Binding ContentDialogSettings.SecondaryButtonNotClose, Mode=TwoWay}" />
                         <CheckBox Content="以此为父窗口" IsChecked="{Binding ContentDialogSettings.IsChild, Mode=TwoWay}" />
@@ -134,12 +147,46 @@
                             Content="模态窗口（无父窗口时无效）"
                             IsChecked="{Binding ContentDialogSettings.IsModal, Mode=TwoWay}"
                             IsEnabled="{Binding ContentDialogSettings.IsChild, Mode=OneWay}" />
-                        <!--<CheckBox
-                Content="禁用父窗口（无父窗口时无效）"
-                IsChecked="{Binding ContentDialogSettings.DisableBehind, Mode=TwoWay}"
-                IsEnabled="{Binding ContentDialogSettings.IsChild, Mode=OneWay}" />-->
                     </StackPanel>
+
+                    <dialogs:WindowedContentDialog
+                        x:Name="XamlWindowedContentDialog"
+                        Title="{Binding ContentDialogSettings.Title, Mode=OneWay}"
+                        CloseButtonText="{Binding ContentDialogSettings.CloseButtonText, Mode=OneWay}"
+                        DefaultButton="{Binding ContentDialogSettings.DefaultButton, Mode=OneWay}"
+                        IsModal="{Binding ContentDialogSettings.IsModal, Mode=OneWay}"
+                        IsPrimaryButtonEnabled="{Binding ContentDialogSettings.IsPrimaryButtonEnabled, Mode=OneWay}"
+                        IsSecondaryButtonEnabled="{Binding ContentDialogSettings.IsSecondaryButtonEnabled, Mode=OneWay}"
+                        OwnerWindow="{x:Static app:MainWindow.Current}"
+                        PrimaryButtonText="{Binding ContentDialogSettings.PrimaryButtonText, Mode=OneWay}"
+                        SecondaryButtonText="{Binding ContentDialogSettings.SecondaryButtonText, Mode=OneWay}">
+
+                        <dialogs:WindowedContentDialog.TitleTemplate>
+                            <DataTemplate DataType="{x:Type system:String}">
+                                <dialogs:MessageBoxHeader Icon="Information" Text="{Binding}" />
+                            </DataTemplate>
+                        </dialogs:WindowedContentDialog.TitleTemplate>
+
+                        <StackPanel>
+                            <CheckBox Content="Lorem" IsThreeState="True" />
+                            <CheckBox Content="Ipsum" IsThreeState="True" />
+                            <CheckBox Content="Dolor" IsThreeState="True" />
+                            <CheckBox Content="Sit" IsThreeState="True" />
+                            <CheckBox Content="Amet" IsThreeState="True" />
+                        </StackPanel>
+                    </dialogs:WindowedContentDialog>
                 </StackPanel>
+            </Expander>
+
+            <Expander>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            Click="ShowContentDialogWindowButton_Click"
+                            Content="ContentDialogWindow"
+                            Style="{DynamicResource AccentButtonStyle}" />
+                    </StackPanel>
+                </Expander.Header>
             </Expander>
         </StackPanel>
     </ScrollViewer>

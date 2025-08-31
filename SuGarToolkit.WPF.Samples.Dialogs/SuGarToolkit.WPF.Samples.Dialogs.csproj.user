@@ -7,6 +7,9 @@
     <Compile Update="Views\LoremIpsumPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SampleContentDialogWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SamplePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

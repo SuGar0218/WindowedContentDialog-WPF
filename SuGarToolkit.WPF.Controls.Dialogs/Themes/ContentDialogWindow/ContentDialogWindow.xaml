@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs">
 
-    <Style TargetType="{x:Type local:ContentDialogWindow}">
+    <Style x:Key="ContentDialogWindowDefaultStyle" TargetType="{x:Type local:ContentDialogWindow}">
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="Template">
             <Setter.Value>
@@ -28,5 +28,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--<Style BasedOn="{StaticResource ContentDialogWindowDefaultStyle}" TargetType="{x:Type local:ContentDialogWindow}" />-->
 
 </ResourceDictionary>

@@ -1,0 +1,30 @@
+﻿<dialogs:ContentDialogWindow
+    x:Class="SuGarToolkit.WPF.Samples.Dialogs.Views.SampleContentDialogWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialogs="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToolkit.WPF.Controls.Dialogs"
+    xmlns:local="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Sample ContentDialogWindow"
+    CloseButtonText="Close"
+    DefaultButton="Primary"
+    DialogTitle="Sample ContentDialogWindow"
+    PrimaryButtonText="Primary Button"
+    SecondaryButtonText="Secondary Button"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <CheckBox Content="Using" IsThreeState="True" />
+        <CheckBox Content="ContentDialogWindow" IsChecked="True" />
+        <CheckBox Content="in XAML" IsThreeState="True" />
+        <TextBox
+            AcceptsReturn="True"
+            FontFamily="Consolas"
+            IsReadOnly="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            Text="{x:Static local:SampleContentDialogWindow.XamlCode}" />
+    </StackPanel>
+
+</dialogs:ContentDialogWindow>

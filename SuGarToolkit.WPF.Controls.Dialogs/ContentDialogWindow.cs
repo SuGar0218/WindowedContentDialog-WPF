@@ -3,12 +3,18 @@
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows;
+using System.Windows.Markup;
 using System.Windows.Shell;
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;
 
+/// <summary>
+/// Derived classes must 
+/// </summary>
 public partial class ContentDialogWindow : Window
 {
+    static ContentDialogWindow() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialogWindow), new FrameworkPropertyMetadata(typeof(ContentDialogWindow)));
+
     public ContentDialogWindow()
     {
         if (Environment.OSVersion.Version.Major >= 10)
@@ -21,14 +27,13 @@ public partial class ContentDialogWindow : Window
         }
         Activated += (sender, args) => ContentDialogContent!.AfterGotFocus();
         Deactivated += (sender, args) => ContentDialogContent!.AfterLostFocus();
+        Style = (Style) Application.Current.Resources["ContentDialogWindowDefaultStyle"];
         DataContext = this;
     }
 
     public event CancelEventHandler? PrimaryButtonClick;
     public event CancelEventHandler? SecondaryButtonClick;
     public event CancelEventHandler? CloseButtonClick;
-
-    public ContentDialogResult Result { get; private set; }
 
     #region properties
 
@@ -65,16 +70,18 @@ public partial class ContentDialogWindow : Window
     [DependencyProperty(DefaultValue = ContentDialogButton.Close)]
     public partial ContentDialogButton DefaultButton { get; set; }
 
-    [DependencyProperty]
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
     public partial Style? PrimaryButtonStyle { get; set; }
 
-    [DependencyProperty]
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
     public partial Style? SecondaryButtonStyle { get; set; }
 
-    [DependencyProperty]
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
     public partial Style? CloseButtonStyle { get; set; }
 
     #endregion
+
+    public ContentDialogResult Result { get; private set; }
 
     public override void OnApplyTemplate()
     {
@@ -91,7 +98,7 @@ public partial class ContentDialogWindow : Window
         Result = ContentDialogResult.Primary;
         CancelEventArgs args = new();
         PrimaryButtonClick?.Invoke(this, args);
-        AfterCommandBarButtonClick(args);
+        AfterCommandSpaceButtonClick(args);
     }
 
     private void OnSecondaryButtonClick(object sender, RoutedEventArgs e)
@@ -99,7 +106,7 @@ public partial class ContentDialogWindow : Window
         Result = ContentDialogResult.Secondary;
         CancelEventArgs args = new();
         SecondaryButtonClick?.Invoke(this, args);
-        AfterCommandBarButtonClick(args);
+        AfterCommandSpaceButtonClick(args);
     }
 
     private void OnCloseButtonClick(object sender, RoutedEventArgs e)
@@ -107,10 +114,10 @@ public partial class ContentDialogWindow : Window
         Result = ContentDialogResult.None;
         CancelEventArgs args = new();
         CloseButtonClick?.Invoke(this, args);
-        AfterCommandBarButtonClick(args);
+        AfterCommandSpaceButtonClick(args);
     }
 
-    private void AfterCommandBarButtonClick(CancelEventArgs args)
+    private void AfterCommandSpaceButtonClick(CancelEventArgs args)
     {
         if (args.Cancel)
             return;
@@ -121,8 +128,5 @@ public partial class ContentDialogWindow : Window
     [DisallowNull]
     private ContentDialogContent ContentDialogContent { get; set; }
 
-    static ContentDialogWindow()
-    {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialogWindow), new FrameworkPropertyMetadata(typeof(ContentDialogWindow)));
-    }
+    private static Style DefaultButtonStyle => (Style) Application.Current.Resources["DefaultButtonStyle"];
 }
