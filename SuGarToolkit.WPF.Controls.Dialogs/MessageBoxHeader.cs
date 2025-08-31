@@ -10,7 +10,7 @@ public partial class MessageBoxHeader : Control
     [DependencyProperty]
     public partial string? Text { get; set; }
 
-    [DependencyProperty<MessageBoxIcon>(DefaultValue = MessageBoxIcon.None)]
+    [DependencyProperty(DefaultValue = MessageBoxIcon.None)]
     public partial MessageBoxIcon Icon { get; set; }
 
     static MessageBoxHeader()

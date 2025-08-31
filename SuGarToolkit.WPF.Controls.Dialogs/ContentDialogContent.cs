@@ -206,22 +206,22 @@ public partial class ContentDialogContent : ContentControl
     [DependencyProperty]
     public partial string? CloseButtonText { get; set; }
 
-    [DependencyProperty<bool>(DefaultValue = true)]
+    [DependencyProperty(DefaultValue = true)]
     public partial bool IsPrimaryButtonEnabled { get; set; }
 
-    [DependencyProperty<bool>(DefaultValue = true)]
+    [DependencyProperty(DefaultValue = true)]
     public partial bool IsSecondaryButtonEnabled { get; set; }
 
-    [DependencyProperty<ContentDialogButton>(DefaultValue = ContentDialogButton.Close)]
+    [DependencyProperty(DefaultValue = ContentDialogButton.Close)]
     public partial ContentDialogButton DefaultButton { get; set; }
 
-    [DependencyProperty(DefaultValueName = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
     public partial Style? PrimaryButtonStyle { get; set; }
 
-    [DependencyProperty(DefaultValueName = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
     public partial Style? SecondaryButtonStyle { get; set; }
 
-    [DependencyProperty(DefaultValueName = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
     public partial Style? CloseButtonStyle { get; set; }
 
     [DependencyProperty]
