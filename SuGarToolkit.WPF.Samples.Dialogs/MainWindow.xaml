@@ -8,14 +8,9 @@
     xmlns:my="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToolkit.WPF.Controls.Dialogs"
     xmlns:v="clr-namespace:SuGarToolkit.WPF.Samples.Dialogs.Views"
     Title="SuGarToolkit.WPF.Controls.Dialogs"
+    FontSize="14"
     mc:Ignorable="d">
 
-    <!--<WindowChrome.WindowChrome>
-        <WindowChrome GlassFrameThickness="-1" NonClientFrameEdges="Left,Right" />
-    </WindowChrome.WindowChrome>-->
-
-    <!--  The content in Frame cannot follow ThemeMode of Window  -->
-    <!--<Frame Loaded="Frame_Loaded" />-->
     <v:SamplePage />
 
 </Window>

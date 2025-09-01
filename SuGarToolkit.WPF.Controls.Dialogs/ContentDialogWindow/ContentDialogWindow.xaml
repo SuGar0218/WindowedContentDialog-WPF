@@ -5,6 +5,7 @@
 
     <Style x:Key="ContentDialogWindowDefaultStyle" TargetType="{x:Type local:ContentDialogWindow}">
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ContentDialogWindow}">

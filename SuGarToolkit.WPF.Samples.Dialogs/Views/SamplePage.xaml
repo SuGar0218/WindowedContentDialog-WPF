@@ -13,7 +13,6 @@
     d:DataContext="{d:DesignInstance vm:SampleViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -50,17 +49,8 @@
         </dialogs:WindowedContentDialog>
     </Page.Resources>
 
-    <ScrollViewer>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="36,28">
-            <TextBlock Text="应用程序主题" />
-
-            <ComboBox
-                x:Name="ThemeModeComboBox"
-                HorizontalAlignment="Left"
-                x:FieldModifier="private"
-                ItemsSource="{x:Static vm:EnumValues.ThemeModes}"
-                SelectionChanged="ComboBox_SelectionChanged" />
-
             <Expander>
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
@@ -69,8 +59,7 @@
                             Grid.Column="0"
                             x:FieldModifier="private"
                             Click="ShowMessageBoxButton_Click"
-                            Content="MessageBox"
-                            Style="{DynamicResource AccentButtonStyle}" />
+                            Content="MessageBox" />
                         <TextBlock
                             x:Name="MessageBoxResultBox"
                             VerticalAlignment="Center"
@@ -94,7 +83,7 @@
                     </StackPanel>
                     <StackPanel MinWidth="200">
                         <StackPanel.Resources>
-                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="ComboBox">
+                            <Style BasedOn="{StaticResource {x:Type ComboBox}}" TargetType="ComboBox">
                                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                             </Style>
                         </StackPanel.Resources>
@@ -104,8 +93,6 @@
                         <ComboBox ItemsSource="{x:Static vm:EnumValues.MessageBoxDefaultButtons}" SelectedItem="{Binding MessageBoxSettings.DefaultButton, Mode=TwoWay}" />
                         <TextBlock Text="图标" />
                         <ComboBox ItemsSource="{x:Static vm:EnumValues.MessageBoxImages}" SelectedItem="{Binding MessageBoxSettings.Image, Mode=TwoWay}" />
-                        <TextBlock Text="主题色" />
-                        <ComboBox ItemsSource="{x:Static vm:EnumValues.ThemeModes}" SelectedItem="{Binding MessageBoxSettings.ThemeMode, Mode=TwoWay}" />
                     </StackPanel>
                     <StackPanel>
                         <CheckBox Content="以此为父窗口" IsChecked="{Binding MessageBoxSettings.IsChild, Mode=TwoWay}" />
@@ -124,8 +111,7 @@
                         <Button
                             Grid.Column="0"
                             Click="ShowContentDialogButton_Click"
-                            Content="WindowedContentDialog"
-                            Style="{DynamicResource AccentButtonStyle}">
+                            Content="WindowedContentDialog">
                             <Button.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Click="ShowContentDialogButton_Click" Header="WindowedContentDialog used in code-behind" />
@@ -160,8 +146,6 @@
                         <TextBox Text="{Binding ContentDialogSettings.CloseButtonText, Mode=TwoWay}" />
                         <TextBlock Text="默认按钮" />
                         <ComboBox ItemsSource="{x:Static vm:EnumValues.ContentDialogButtons}" SelectedItem="{Binding ContentDialogSettings.DefaultButton, Mode=TwoWay}" />
-                        <TextBlock Text="主题色" />
-                        <ComboBox ItemsSource="{x:Static vm:EnumValues.ThemeModes}" SelectedItem="{Binding ContentDialogSettings.ThemeMode, Mode=TwoWay}" />
                     </StackPanel>
                     <!--<StackPanel MinWidth="200">
                         <StackPanel.Resources>
@@ -188,10 +172,7 @@
             <Expander>
                 <Expander.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Button
-                            Click="ShowContentDialogWindowButton_Click"
-                            Content="ContentDialogWindow"
-                            Style="{DynamicResource AccentButtonStyle}" />
+                        <Button Click="ShowContentDialogWindowButton_Click" Content="ContentDialogWindow" />
                         <TextBlock
                             x:Name="ContentDialogWindowResultBox"
                             VerticalAlignment="Center"

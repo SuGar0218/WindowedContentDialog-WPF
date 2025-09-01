@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0-windows7.0</TargetFramework>
+		<TargetFramework>net8.0-windows7.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -13,6 +13,14 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<NoWarn>WPF0001</NoWarn>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\MessageBoxIcon.Error.png" />
+	  <None Remove="Resources\MessageBoxIcon.Information.png" />
+	  <None Remove="Resources\MessageBoxIcon.Question.png" />
+	  <None Remove="Resources\MessageBoxIcon.Success.png" />
+	  <None Remove="Resources\MessageBoxIcon.Warning.png" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
@@ -32,6 +40,11 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
+		<Resource Include="Resources\MessageBoxIcon.Error.png" />
+		<Resource Include="Resources\MessageBoxIcon.Information.png" />
+		<Resource Include="Resources\MessageBoxIcon.Question.png" />
+		<Resource Include="Resources\MessageBoxIcon.Success.png" />
+		<Resource Include="Resources\MessageBoxIcon.Warning.png" />
 		<EmbeddedResource Update="Strings\MessageBoxButtonText.resx">
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>MessageBoxButtonText.Designer.cs</LastGenOutput>

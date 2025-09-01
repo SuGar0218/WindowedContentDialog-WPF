@@ -17,6 +17,7 @@ public partial class ContentDialogContent : ContentControl
 
     public ContentDialogContent() : base()
     {
+        Loaded += OnLoaded;
         Unloaded += (o, e) => countCustomMeasureAfterLoaded = 0;
     }
 
@@ -44,13 +45,13 @@ public partial class ContentDialogContent : ContentControl
     [DependencyProperty(DefaultValue = ContentDialogButton.Close, PropertyChanged = nameof(OnDefaultButtonChanged))]
     public partial ContentDialogButton DefaultButton { get; set; }
 
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(ButtonDefaultStyle))]
     public partial Style? PrimaryButtonStyle { get; set; }
 
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(ButtonDefaultStyle))]
     public partial Style? SecondaryButtonStyle { get; set; }
 
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(ButtonDefaultStyle))]
     public partial Style? CloseButtonStyle { get; set; }
 
     [DependencyProperty]
@@ -85,6 +86,38 @@ public partial class ContentDialogContent : ContentControl
         CloseButton.Click += (sender, args) => CloseButtonClick?.Invoke(sender, args);
 
         ButtonsVisibilityState = DetermineButtonsVisibilityState();
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        FocusOnDefaultButton();
+    }
+
+    private void FocusOnDefaultButton()
+    {
+        switch (DefaultButton)
+        {
+            case ContentDialogButton.Primary:
+                if (PrimaryButton.IsEnabled)
+                {
+                    PrimaryButton.Focus();
+                }
+                break;
+            case ContentDialogButton.Secondary:
+                if (SecondaryButton.IsEnabled)
+                {
+                    SecondaryButton.Focus();
+                }
+                break;
+            case ContentDialogButton.Close:
+                if (CloseButton.IsEnabled)
+                {
+                    CloseButton.Focus();
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     /// <summary>
@@ -231,6 +264,7 @@ public partial class ContentDialogContent : ContentControl
 
     private ContentDialogButton DetermineDefaultButtonState()
     {
+        FocusOnDefaultButton();
         return DefaultButton;
     }
 
@@ -253,7 +287,7 @@ public partial class ContentDialogContent : ContentControl
         }
     }
 
-    private static Style DefaultButtonStyle => (Style) Application.Current.Resources["DefaultButtonStyle"];
+    private static Style ButtonDefaultStyle => (Style) Application.Current.Resources["ContentDialogButtonDefaultStyle"];
 }
 
 internal enum ContentDialogButtonsVisibilityState

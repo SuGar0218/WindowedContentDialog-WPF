@@ -21,14 +21,22 @@
     <Color x:Key="ContentDialogWindowCommandSpaceBackground">#0F000000</Color>
     <Color x:Key="ContentDialogWindowSeparatorBorderColor">#19000000</Color>
     <SolidColorBrush x:Key="ContentDialogWindowSeparatorBorderBrush" Color="{StaticResource ContentDialogWindowSeparatorBorderColor}" />
-    <!--<SolidColorBrush x:Key="ContentDialogWindowTopOverlay" Color="{DynamicResource LayerFillColorDefault}" />-->
+    <SolidColorBrush x:Key="ContentDialogWindowTopOverlay" Color="Transparent" />
+    <Color x:Key="ContentDialogTitleForegroundColor">#01359C</Color>
+    <SolidColorBrush x:Key="ContentDialogTitleForeground" Color="{StaticResource ContentDialogTitleForegroundColor}" />
     <!--<LinearGradientBrush x:Key="ContentDialogWindowTopOverlay" MappingMode="Absolute" StartPoint="0,10" EndPoint="0,30">
         <GradientStop Offset="0.0" Color="Transparent" />
         <GradientStop Offset="1.0" Color="{DynamicResource LayerFillColorDefault}" />
     </LinearGradientBrush>-->
     <SolidColorBrush
         x:Key="ContentDialogWindowCommandSpaceBackgroundBrush"
-        Opacity="0.5"
+        Opacity="1.0"
         Color="{StaticResource ContentDialogWindowCommandSpaceBackground}" />
+    <Style
+        x:Key="ContentDialogButtonDefaultStyle"
+        BasedOn="{StaticResource {x:Type Button}}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="4" />
+    </Style>
 
 </ResourceDictionary>

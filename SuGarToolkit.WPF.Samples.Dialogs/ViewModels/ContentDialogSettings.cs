@@ -43,6 +43,4 @@ public partial class ContentDialogSettings : ObservableObject
     public bool SecondaryButtonNotClose { get; set; }
 
     public bool CenterInParent { get; set; } = true;
-
-    public ThemeMode ThemeMode { get; set; }
 }

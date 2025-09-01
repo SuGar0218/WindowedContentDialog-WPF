@@ -25,25 +25,12 @@
                             <Grid
                                 x:Name="StandardIconArea"
                                 Grid.Column="0"
+                                Margin="{StaticResource MessageBoxHeaderIconMargin}"
                                 VerticalAlignment="Center">
-
-                                <TextBlock
-                                    x:Name="IconBackground"
-                                    Margin="{StaticResource MessageBoxHeaderIconMargin}"
-                                    VerticalAlignment="Top"
-                                    FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                    FontSize="{StaticResource MessageBoxHeaderIconFontSize}"
-                                    Foreground="{StaticResource MessageBoxHeaderInformationalSeverityIconBackground}"
-                                    Text="{StaticResource MessageBoxHeaderIconBackgroundGlyph}" />
-
-                                <TextBlock
-                                    x:Name="StandardIcon"
-                                    Margin="{StaticResource MessageBoxHeaderIconMargin}"
-                                    VerticalAlignment="Top"
-                                    FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                    FontSize="{StaticResource MessageBoxHeaderIconFontSize}"
-                                    Foreground="{StaticResource MessageBoxHeaderInformationalSeverityIconForeground}"
-                                    Text="{StaticResource MessageBoxHeaderInformationalIconGlyph}" />
+                                <Image
+                                    x:Name="MessageBoxIconImage"
+                                    Height="24"
+                                    Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Resources/MessageBoxIcon.Information.png" />
                             </Grid>
 
                             <TextBlock
@@ -61,25 +48,16 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="Icon" Value="Information" />
                         <Trigger Property="Icon" Value="Question">
-                            <Setter TargetName="IconBackground" Property="Foreground" Value="{DynamicResource MessageBoxHeaderQuestionalSeverityIconBackground}" />
-                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderQuestionalIconGlyph}" />
-                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderQuestionalSeverityIconForeground}" />
+                            <Setter TargetName="MessageBoxIconImage" Property="Source" Value="/SuGarToolkit.WPF.Controls.Dialogs;component/Resources/MessageBoxIcon.Question.png" />
                         </Trigger>
                         <Trigger Property="Icon" Value="Error">
-                            <Setter TargetName="IconBackground" Property="Foreground" Value="{DynamicResource MessageBoxHeaderErrorSeverityIconBackground}" />
-                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderErrorIconGlyph}" />
-                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderErrorSeverityIconForeground}" />
+                            <Setter TargetName="MessageBoxIconImage" Property="Source" Value="/SuGarToolkit.WPF.Controls.Dialogs;component/Resources/MessageBoxIcon.Error.png" />
                         </Trigger>
                         <Trigger Property="Icon" Value="Warning">
-                            <Setter TargetName="IconBackground" Property="Text" Value="{StaticResource MessageBoxHeaderWarningBackgroundGlyph}" />
-                            <Setter TargetName="IconBackground" Property="Foreground" Value="{StaticResource MessageBoxHeaderWarningSeverityIconBackground}" />
-                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderWarningIconGlyph}" />
-                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderWarningSeverityIconForeground}" />
+                            <Setter TargetName="MessageBoxIconImage" Property="Source" Value="/SuGarToolkit.WPF.Controls.Dialogs;component/Resources/MessageBoxIcon.Warning.png" />
                         </Trigger>
                         <Trigger Property="Icon" Value="Success">
-                            <Setter TargetName="IconBackground" Property="Foreground" Value="{DynamicResource MessageBoxHeaderSuccessSeverityIconBackground}" />
-                            <Setter TargetName="StandardIcon" Property="Text" Value="{StaticResource MessageBoxHeaderSuccessIconGlyph}" />
-                            <Setter TargetName="StandardIcon" Property="Foreground" Value="{DynamicResource MessageBoxHeaderSuccessSeverityIconForeground}" />
+                            <Setter TargetName="MessageBoxIconImage" Property="Source" Value="/SuGarToolkit.WPF.Controls.Dialogs;component/Resources/MessageBoxIcon.Success.png" />
                         </Trigger>
                         <Trigger Property="Icon" Value="None">
                             <Setter TargetName="StandardIconArea" Property="Visibility" Value="Collapsed" />

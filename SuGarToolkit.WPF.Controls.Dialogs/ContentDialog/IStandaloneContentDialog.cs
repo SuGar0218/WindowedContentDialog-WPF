@@ -25,11 +25,4 @@ public interface IStandaloneContentDialog
     public Style? SecondaryButtonStyle { get; set; }
     public Style? CloseButtonStyle { get; set; }
     public FlowDirection FlowDirection { get; set; }
-
-    /// <summary>
-    /// ThemeMode.None is treated as following owner window
-    /// </summary>
-    public ThemeMode ThemeMode { get; set; }
-
-    public ThemeMode DetermineTheme() => ThemeMode;
 }

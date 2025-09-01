@@ -2,6 +2,7 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helper="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs.Helpers"
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs">
 
     <ResourceDictionary.MergedDictionaries>
@@ -37,10 +38,10 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Border
-                                Background="{DynamicResource LayerFillColorDefaultBrush}"
+                                Background="{StaticResource ContentDialogWindowTopOverlay}"
                                 BorderBrush="{StaticResource ContentDialogWindowSeparatorBorderBrush}"
                                 BorderThickness="{StaticResource ContentDialogSeparatorThickness}">
-                                <Grid>
+                                <Grid helper:GlowingTextBlockPatch.UseGlowingTextBlock="True">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="*" />
@@ -61,7 +62,7 @@
                                             ContentTemplate="{TemplateBinding TitleTemplate}"
                                             FontSize="20"
                                             FontWeight="SemiBold"
-                                            Foreground="{TemplateBinding Foreground}"
+                                            Foreground="{StaticResource ContentDialogTitleForeground}"
                                             IsTabStop="True">
                                             <ContentControl.Template>
                                                 <ControlTemplate TargetType="ContentControl">

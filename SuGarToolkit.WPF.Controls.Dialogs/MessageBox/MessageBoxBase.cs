@@ -50,7 +50,6 @@ public abstract class MessageBoxBase
             Text = _title
         };
         _dialog.FlowDirection = _options.FlowDirection;
-        _dialog.ThemeMode = _options.ThemeMode;
         DetermineDefaultButton();
         DetermineButtonText();
         return ShowAndWaitForResult();

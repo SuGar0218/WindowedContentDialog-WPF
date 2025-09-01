@@ -29,8 +29,7 @@ public partial class SamplePage : Page
             ViewModel.MessageBoxSettings.DefaultButton,
             new MessageBoxOptions
             {
-                CenterInParent = ViewModel.MessageBoxSettings.CenterInParent,
-                ThemeMode = ViewModel.MessageBoxSettings.ThemeMode
+                CenterInParent = ViewModel.MessageBoxSettings.CenterInParent
             });
         MessageBoxResultBox.Text = result.ToString();
     }
@@ -50,7 +49,6 @@ public partial class SamplePage : Page
 
             OwnerWindow = ViewModel.ContentDialogSettings.IsChild ? Application.Current.MainWindow : null,
             CenterInParent = ViewModel.ContentDialogSettings.CenterInParent,
-            ThemeMode = ViewModel.ContentDialogSettings.ThemeMode
         };
         if (ViewModel.ContentDialogSettings.PrimaryButtonNotClose)
         {
@@ -73,25 +71,12 @@ public partial class SamplePage : Page
 
     private void ShowContentDialogWindowButton_Click(object sender, RoutedEventArgs args)
     {
-        SampleContentDialogWindow window = new()
-        {
-            ThemeMode = Application.Current.MainWindow.ThemeMode
-        };
+        SampleContentDialogWindow window = new();
         window.Closed += (sender, args) =>
         {
             SampleContentDialogWindow window = (SampleContentDialogWindow) sender!;
             ContentDialogWindowResultBox.Text = window.Result.ToString();
         };
         window.Show();
-    }
-
-    private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        Application.Current.MainWindow.ThemeMode = (ThemeMode) e.AddedItems[0]!;
-    }
-
-    private void Page_Loaded(object sender, RoutedEventArgs e)
-    {
-        ThemeModeComboBox.SelectedItem = Application.Current.MainWindow.ThemeMode;
     }
 }

@@ -26,6 +26,14 @@ public partial class ContentDialogWindow : Window
                 NonClientFrameEdges = NonClientFrameEdges.Left | NonClientFrameEdges.Right | NonClientFrameEdges.Bottom
             });
         }
+        else
+        {
+            WindowChrome.SetWindowChrome(this, new WindowChrome()
+            {
+                GlassFrameThickness = new Thickness(-1),
+                NonClientFrameEdges = NonClientFrameEdges.Bottom
+            });
+        }
         Activated += (sender, args) => ContentDialogContent!.AfterGotFocus();
         Deactivated += (sender, args) => ContentDialogContent!.AfterLostFocus();
         Style = (Style) Application.Current.Resources["ContentDialogWindowDefaultStyle"];
@@ -71,13 +79,13 @@ public partial class ContentDialogWindow : Window
     [DependencyProperty(DefaultValue = ContentDialogButton.Close)]
     public partial ContentDialogButton DefaultButton { get; set; }
 
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(ButtonDefaultStyle))]
     public partial Style? PrimaryButtonStyle { get; set; }
 
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(ButtonDefaultStyle))]
     public partial Style? SecondaryButtonStyle { get; set; }
 
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    [DependencyProperty(DefaultValuePath = nameof(ButtonDefaultStyle))]
     public partial Style? CloseButtonStyle { get; set; }
 
     #endregion
@@ -129,5 +137,5 @@ public partial class ContentDialogWindow : Window
     [DisallowNull]
     private ContentDialogContent ContentDialogContent { get; set; }
 
-    private static Style DefaultButtonStyle => (Style) Application.Current.Resources["DefaultButtonStyle"];
+    private static Style ButtonDefaultStyle => (Style) Application.Current.Resources["ContentDialogButtonDefaultStyle"];
 }

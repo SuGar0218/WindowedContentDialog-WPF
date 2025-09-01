@@ -21,6 +21,8 @@ public partial class WindowedContentDialogPresenterWindow : Window
     public WindowedContentDialogPresenterWindow()
     {
         InitializeWindow();
+        Background = null;
+        FontSize = 14;
     }
 
     private void InitializeWindow()
@@ -34,6 +36,14 @@ public partial class WindowedContentDialogPresenterWindow : Window
             {
                 GlassFrameThickness = new Thickness(-1),
                 NonClientFrameEdges = NonClientFrameEdges.Left | NonClientFrameEdges.Right | NonClientFrameEdges.Bottom
+            });
+        }
+        else
+        {
+            WindowChrome.SetWindowChrome(this, new WindowChrome()
+            {
+                GlassFrameThickness = new Thickness(-1),
+                NonClientFrameEdges = NonClientFrameEdges.Bottom
             });
         }
     }

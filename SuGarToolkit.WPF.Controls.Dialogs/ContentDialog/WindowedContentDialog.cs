@@ -24,7 +24,6 @@ public partial class WindowedContentDialog : Control, IStandaloneContentDialog
     {
         PresenterWindow = new WindowedContentDialogPresenterWindow();
         PresenterWindow.InitializeComponent(ContentDialogContent);
-        PresenterWindow.ThemeMode = DetermineTheme();
         PresenterWindow.Title = WindowTitle ?? string.Empty;
         PresenterWindow.PrimaryButtonClick += (sender, args) => PrimaryButtonClick?.Invoke(this, args);
         PresenterWindow.SecondaryButtonClick += (sender, args) => SecondaryButtonClick?.Invoke(this, args);
@@ -85,9 +84,6 @@ public partial class WindowedContentDialog : Control, IStandaloneContentDialog
     public partial Style? CloseButtonStyle { get; set; }
 
     [DependencyProperty]
-    public partial ThemeMode ThemeMode { get; set; }
-
-    [DependencyProperty]
     public partial string? WindowTitle { get; set; }
 
     [DependencyProperty(DefaultValue = true)]
@@ -144,23 +140,6 @@ public partial class WindowedContentDialog : Control, IStandaloneContentDialog
             PresenterWindow.Show();
         }
         return Result;
-    }
-
-    /// <summary>
-    /// ThemeMode.None is treated as following owner window
-    /// </summary>
-    public ThemeMode DetermineTheme()
-    {
-        if (ThemeMode != ThemeMode.None)
-            return ThemeMode;
-
-        if (OwnerWindow is not null)
-            return OwnerWindow.ThemeMode;
-
-        if (Application.Current.MainWindow is not null)
-            return Application.Current.MainWindow.ThemeMode;
-
-        return Application.Current.ThemeMode;
     }
 
     [DisallowNull]

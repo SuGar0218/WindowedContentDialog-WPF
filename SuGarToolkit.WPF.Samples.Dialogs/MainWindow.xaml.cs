@@ -6,7 +6,6 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        ThemeMode = Application.Current.ThemeMode;
         InitializeComponent();
     }
 
