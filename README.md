@@ -2,11 +2,11 @@
 
 Show ContentDialog similar to WinUI3 and MessageBox in WinUI3 style in a separate window.
 
-There has been WindowedContentDialog for WinUI 3: https://github.com/SuGar0218/WindowedContentDialog
+There has been WindowedContentDialog for WinUI3: https://github.com/SuGar0218/WindowedContentDialog
 
 This library depends on the new Fluent style provided for WPF in .NET 9.
 
-``` xaml
+``` xml
 <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
 </ResourceDictionary.MergedDictionaries>
@@ -24,7 +24,9 @@ using MessageBoxOptions = SuGarToolkit.WPF.Controls.Dialogs.MessageBoxOptions;
 using MessageBoxResult = SuGarToolkit.WPF.Controls.Dialogs.MessageBoxResult;
 ```
 
-## Use similarly to ContentDialog in WinUI 3
+## Using in { code-behind }
+
+### Using similarly to ContentDialog in WinUI 3
 
 ``` C#
 using SuGarToolkit.WPF.Controls.Dialogs;
@@ -53,7 +55,7 @@ If you want to prevent dialog from closing after buttons clicked, please handle 
 dialog.PrimaryButtonClick += (o, e) => e.Cancel = true;
 ```
 
-## Use similarly to MessageBox in WPF or WinForm
+### Using similarly to MessageBox in WPF or WinForm
 
 ``` C#
 using SuGarToolkit.WPF.Controls.Dialogs;
@@ -74,4 +76,67 @@ MessageBoxResult result = MessageBox.Show(
         CenterInParent = true  // whether to appear at the center of owner/parent window
     }
 );
+```
+
+## Using in < XAML />
+
+``` xml
+xmlns:dialogs="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToolkit.WPF.Controls.Dialogs"
+```
+
+### Using ```WindowedContentDialog``` in ```<Page.Resources>```
+
+``` xml
+<Page.Resources>
+    <dialogs:WindowedContentDialog
+        x:Key="XamlWindowedContentDialog"
+        Title="{Binding ContentDialogSettings.Title, Mode=OneWay}"
+        CloseButtonText="{Binding ContentDialogSettings.CloseButtonText, Mode=OneWay}"
+        DataContext="{x:Reference ViewModel}"
+        DefaultButton="{Binding ContentDialogSettings.DefaultButton, Mode=OneWay}"
+        IsModal="{Binding ContentDialogSettings.IsModal, Mode=OneWay}"
+        IsPrimaryButtonEnabled="{Binding ContentDialogSettings.IsPrimaryButtonEnabled, Mode=OneWay}"
+        IsSecondaryButtonEnabled="{Binding ContentDialogSettings.IsSecondaryButtonEnabled, Mode=OneWay}"
+        OwnerWindow="{x:Static app:MainWindow.Current}"
+        PrimaryButtonText="{Binding ContentDialogSettings.PrimaryButtonText, Mode=OneWay}"
+        SecondaryButtonText="{Binding ContentDialogSettings.SecondaryButtonText, Mode=OneWay}">
+
+        <dialogs:WindowedContentDialog.TitleTemplate>
+            <DataTemplate DataType="{x:Type system:String}">
+                <dialogs:MessageBoxHeader Icon="Information" Text="{Binding}" />
+            </DataTemplate>
+        </dialogs:WindowedContentDialog.TitleTemplate>
+
+        <StackPanel>
+            <CheckBox Content="Lorem" IsThreeState="True" />
+            <CheckBox Content="Ipsum" IsThreeState="True" />
+            <CheckBox Content="Dolor" IsThreeState="True" />
+            <CheckBox Content="Sit" IsThreeState="True" />
+            <CheckBox Content="Amet" IsThreeState="True" />
+        </StackPanel>
+    </dialogs:WindowedContentDialog>
+</Page.Resources>
+```
+
+### Using ```ContentDialogWindow``` in XAML
+
+``` xml
+<dialogs:ContentDialogWindow
+    xmlns:dialogs="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToolkit.WPF.Controls.Dialogs"
+    Title="Sample ContentDialogWindow"
+    CloseButtonText="Close"
+    DefaultButton="Primary"
+    DialogTitle="Sample ContentDialogWindow"
+    PrimaryButtonText="Primary Button"
+    SecondaryButtonText="Secondary Button"
+    ...>
+
+    <StackPanel>
+        <CheckBox Content="Using" IsThreeState="True" />
+        <CheckBox Content="ContentDialogWindow" IsChecked="True" />
+        <CheckBox Content="in XAML" IsThreeState="True" />
+    </StackPanel>
+
+</dialogs:ContentDialogWindow>
+
 ```
