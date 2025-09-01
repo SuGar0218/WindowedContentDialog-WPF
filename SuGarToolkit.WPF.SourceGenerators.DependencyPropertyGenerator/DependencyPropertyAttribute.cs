@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows;
 
 namespace SuGarToolkit.WPF.SourceGenerators
 {
@@ -10,6 +9,6 @@ namespace SuGarToolkit.WPF.SourceGenerators
 
         public string DefaultValuePath { get; set; }
 
-        //public PropertyChangedCallback OnPropertyChanged { get; set; }
+        public string PropertyChanged { get; set; }
     }
 }
