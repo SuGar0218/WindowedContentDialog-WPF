@@ -5,13 +5,18 @@ using System.Windows.Controls;
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;
 
+[TemplatePart(Name = nameof(PrimaryButton), Type = typeof(Button))]
+[TemplatePart(Name = nameof(SecondaryButton), Type = typeof(Button))]
+[TemplatePart(Name = nameof(CloseButton), Type = typeof(Button))]
+[TemplatePart(Name = nameof(TitleArea), Type = typeof(UIElement))]
+[TemplatePart(Name = nameof(DialogSpace), Type = typeof(Grid))]
+[TemplatePart(Name = nameof(CommandSpace), Type = typeof(Border))]
 public partial class ContentDialogContent : ContentControl
 {
     static ContentDialogContent() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialogContent), new FrameworkPropertyMetadata(typeof(ContentDialogContent)));
 
     public ContentDialogContent() : base()
     {
-        Loaded += OnLoaded;
         Unloaded += (o, e) => countCustomMeasureAfterLoaded = 0;
     }
 
@@ -42,12 +47,8 @@ public partial class ContentDialogContent : ContentControl
         PrimaryButton.Click += (sender, args) => PrimaryButtonClick?.Invoke(sender, args);
         SecondaryButton.Click += (sender, args) => SecondaryButtonClick?.Invoke(sender, args);
         CloseButton.Click += (sender, args) => CloseButtonClick?.Invoke(sender, args);
-    }
 
-    private void OnLoaded(object sender, RoutedEventArgs args)
-    {
         ButtonsVisibilityState = DetermineButtonsVisibilityState();
-        DefaultButtonState = DetermineDefaultButtonState();
     }
 
     /// <summary>
@@ -197,19 +198,38 @@ public partial class ContentDialogContent : ContentControl
         return DefaultButton;
     }
 
+    private static void OnButtonTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ContentDialogContent self = (ContentDialogContent) d;
+        if (self.IsLoaded)
+        {
+            self.ButtonsVisibilityState = self.DetermineButtonsVisibilityState();
+            self.countCustomMeasureAfterLoaded = 0;
+        }
+    }
+
+    private static void OnDefaultButtonChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ContentDialogContent self = (ContentDialogContent) d;
+        if (self.IsLoaded)
+        {
+            self.DefaultButtonState = self.DetermineDefaultButtonState();
+        }
+    }
+
     [DependencyProperty]
     public partial object? Title { get; set; }
 
     [DependencyProperty]
     public partial DataTemplate? TitleTemplate { get; set; }
 
-    [DependencyProperty]
+    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
     public partial string? PrimaryButtonText { get; set; }
 
-    [DependencyProperty]
+    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
     public partial string? SecondaryButtonText { get; set; }
 
-    [DependencyProperty]
+    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
     public partial string? CloseButtonText { get; set; }
 
     [DependencyProperty(DefaultValue = true)]
@@ -218,7 +238,7 @@ public partial class ContentDialogContent : ContentControl
     [DependencyProperty(DefaultValue = true)]
     public partial bool IsSecondaryButtonEnabled { get; set; }
 
-    [DependencyProperty(DefaultValue = ContentDialogButton.Close)]
+    [DependencyProperty(DefaultValue = ContentDialogButton.Close, PropertyChanged = nameof(OnDefaultButtonChanged))]
     public partial ContentDialogButton DefaultButton { get; set; }
 
     [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]

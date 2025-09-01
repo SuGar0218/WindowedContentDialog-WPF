@@ -16,6 +16,40 @@
     Loaded="Page_Loaded"
     mc:Ignorable="d">
 
+    <Page.DataContext>
+        <vm:SampleViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <dialogs:WindowedContentDialog
+            x:Key="XamlWindowedContentDialog"
+            Title="{Binding ContentDialogSettings.Title, Mode=OneWay}"
+            CloseButtonText="{Binding ContentDialogSettings.CloseButtonText, Mode=OneWay}"
+            DataContext="{x:Reference ViewModel}"
+            DefaultButton="{Binding ContentDialogSettings.DefaultButton, Mode=OneWay}"
+            IsModal="{Binding ContentDialogSettings.IsModal, Mode=OneWay}"
+            IsPrimaryButtonEnabled="{Binding ContentDialogSettings.IsPrimaryButtonEnabled, Mode=OneWay}"
+            IsSecondaryButtonEnabled="{Binding ContentDialogSettings.IsSecondaryButtonEnabled, Mode=OneWay}"
+            OwnerWindow="{x:Static app:MainWindow.Current}"
+            PrimaryButtonText="{Binding ContentDialogSettings.PrimaryButtonText, Mode=OneWay}"
+            SecondaryButtonText="{Binding ContentDialogSettings.SecondaryButtonText, Mode=OneWay}">
+
+            <dialogs:WindowedContentDialog.TitleTemplate>
+                <DataTemplate DataType="{x:Type system:String}">
+                    <dialogs:MessageBoxHeader Icon="Information" Text="{Binding}" />
+                </DataTemplate>
+            </dialogs:WindowedContentDialog.TitleTemplate>
+
+            <StackPanel>
+                <CheckBox Content="Lorem" IsThreeState="True" />
+                <CheckBox Content="Ipsum" IsThreeState="True" />
+                <CheckBox Content="Dolor" IsThreeState="True" />
+                <CheckBox Content="Sit" IsThreeState="True" />
+                <CheckBox Content="Amet" IsThreeState="True" />
+            </StackPanel>
+        </dialogs:WindowedContentDialog>
+    </Page.Resources>
+
     <ScrollViewer>
         <StackPanel Margin="36,28">
             <TextBlock Text="应用程序主题" />
@@ -148,33 +182,6 @@
                             IsChecked="{Binding ContentDialogSettings.IsModal, Mode=TwoWay}"
                             IsEnabled="{Binding ContentDialogSettings.IsChild, Mode=OneWay}" />
                     </StackPanel>
-
-                    <dialogs:WindowedContentDialog
-                        x:Name="XamlWindowedContentDialog"
-                        Title="{Binding ContentDialogSettings.Title, Mode=OneWay}"
-                        CloseButtonText="{Binding ContentDialogSettings.CloseButtonText, Mode=OneWay}"
-                        DefaultButton="{Binding ContentDialogSettings.DefaultButton, Mode=OneWay}"
-                        IsModal="{Binding ContentDialogSettings.IsModal, Mode=OneWay}"
-                        IsPrimaryButtonEnabled="{Binding ContentDialogSettings.IsPrimaryButtonEnabled, Mode=OneWay}"
-                        IsSecondaryButtonEnabled="{Binding ContentDialogSettings.IsSecondaryButtonEnabled, Mode=OneWay}"
-                        OwnerWindow="{x:Static app:MainWindow.Current}"
-                        PrimaryButtonText="{Binding ContentDialogSettings.PrimaryButtonText, Mode=OneWay}"
-                        SecondaryButtonText="{Binding ContentDialogSettings.SecondaryButtonText, Mode=OneWay}">
-
-                        <dialogs:WindowedContentDialog.TitleTemplate>
-                            <DataTemplate DataType="{x:Type system:String}">
-                                <dialogs:MessageBoxHeader Icon="Information" Text="{Binding}" />
-                            </DataTemplate>
-                        </dialogs:WindowedContentDialog.TitleTemplate>
-
-                        <StackPanel>
-                            <CheckBox Content="Lorem" IsThreeState="True" />
-                            <CheckBox Content="Ipsum" IsThreeState="True" />
-                            <CheckBox Content="Dolor" IsThreeState="True" />
-                            <CheckBox Content="Sit" IsThreeState="True" />
-                            <CheckBox Content="Amet" IsThreeState="True" />
-                        </StackPanel>
-                    </dialogs:WindowedContentDialog>
                 </StackPanel>
             </Expander>
 
@@ -185,6 +192,10 @@
                             Click="ShowContentDialogWindowButton_Click"
                             Content="ContentDialogWindow"
                             Style="{DynamicResource AccentButtonStyle}" />
+                        <TextBlock
+                            x:Name="ContentDialogWindowResultBox"
+                            VerticalAlignment="Center"
+                            x:FieldModifier="private" />
                     </StackPanel>
                 </Expander.Header>
             </Expander>

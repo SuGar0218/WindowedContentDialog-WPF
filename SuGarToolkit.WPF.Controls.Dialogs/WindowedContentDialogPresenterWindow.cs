@@ -23,6 +23,21 @@ public partial class WindowedContentDialogPresenterWindow : Window
         InitializeWindow();
     }
 
+    private void InitializeWindow()
+    {
+        SizeToContent = SizeToContent.WidthAndHeight;
+        Activated += (sender, args) => ContentDialogContent!.AfterGotFocus();
+        Deactivated += (sender, args) => ContentDialogContent!.AfterLostFocus();
+        if (Environment.OSVersion.Version.Major >= 10)
+        {
+            WindowChrome.SetWindowChrome(this, new WindowChrome()
+            {
+                GlassFrameThickness = new Thickness(-1),
+                NonClientFrameEdges = NonClientFrameEdges.Left | NonClientFrameEdges.Right | NonClientFrameEdges.Bottom
+            });
+        }
+    }
+
     internal void InitializeComponent(ContentDialogContent component)
     {
         component.PrimaryButtonClick += OnPrimaryButtonClick;
@@ -50,21 +65,6 @@ public partial class WindowedContentDialogPresenterWindow : Window
     private void OnTitleAreaPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         DragMove();
-    }
-
-    private void InitializeWindow()
-    {
-        SizeToContent = SizeToContent.WidthAndHeight;
-        Activated += (sender, args) => ContentDialogContent!.AfterGotFocus();
-        Deactivated += (sender, args) => ContentDialogContent!.AfterLostFocus();
-        if (Environment.OSVersion.Version.Major >= 10)
-        {
-            WindowChrome.SetWindowChrome(this, new WindowChrome()
-            {
-                GlassFrameThickness = new Thickness(-1),
-                NonClientFrameEdges = NonClientFrameEdges.Left | NonClientFrameEdges.Right | NonClientFrameEdges.Bottom
-            });
-        }
     }
 
     public event CancelEventHandler? PrimaryButtonClick;

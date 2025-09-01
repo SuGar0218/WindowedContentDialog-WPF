@@ -15,27 +15,22 @@ public partial class SamplePage : Page
     public SamplePage()
     {
         InitializeComponent();
-        DataContext = viewModel;
     }
-
-    private readonly SampleViewModel viewModel = new();
 
     private void ShowMessageBoxButton_Click(object sender, RoutedEventArgs e)
     {
         MessageBoxResult result = MessageBox.Show(
-            viewModel.MessageBoxSettings.IsModal,
-            viewModel.MessageBoxSettings.IsChild ? Application.Current.MainWindow : null,
-            viewModel.MessageBoxSettings.Content,
-            viewModel.MessageBoxSettings.Title,
-            viewModel.MessageBoxSettings.Buttons,
-            viewModel.MessageBoxSettings.Image,
-            viewModel.MessageBoxSettings.DefaultButton,
+            ViewModel.MessageBoxSettings.IsModal,
+            ViewModel.MessageBoxSettings.IsChild ? Application.Current.MainWindow : null,
+            ViewModel.MessageBoxSettings.Content,
+            ViewModel.MessageBoxSettings.Title,
+            ViewModel.MessageBoxSettings.Buttons,
+            ViewModel.MessageBoxSettings.Image,
+            ViewModel.MessageBoxSettings.DefaultButton,
             new MessageBoxOptions
             {
-                //IsTitleBarVisible = viewModel.MessageBoxSettings.IsTitleBarVisible,
-                CenterInParent = viewModel.MessageBoxSettings.CenterInParent,
-                ThemeMode = viewModel.MessageBoxSettings.ThemeMode,
-                //DisableBehind = viewModel.MessageBoxSettings.DisableBehind,
+                CenterInParent = ViewModel.MessageBoxSettings.CenterInParent,
+                ThemeMode = ViewModel.MessageBoxSettings.ThemeMode
             });
         MessageBoxResultBox.Text = result.ToString();
     }
@@ -44,44 +39,50 @@ public partial class SamplePage : Page
     {
         WindowedContentDialog dialog = new()
         {
-            WindowTitle = viewModel.ContentDialogSettings.Title,
-            Title = viewModel.ContentDialogSettings.Title,
-            Content = !string.IsNullOrEmpty(viewModel.ContentDialogSettings.Message) ? viewModel.ContentDialogSettings.Message : new LoremIpsumPage().Content,
+            WindowTitle = ViewModel.ContentDialogSettings.Title,
+            Title = ViewModel.ContentDialogSettings.Title,
+            Content = !string.IsNullOrEmpty(ViewModel.ContentDialogSettings.Message) ? ViewModel.ContentDialogSettings.Message : new LoremIpsumPage().Content,
 
-            PrimaryButtonText = viewModel.ContentDialogSettings.PrimaryButtonText,
-            SecondaryButtonText = viewModel.ContentDialogSettings.SecondaryButtonText,
-            CloseButtonText = viewModel.ContentDialogSettings.CloseButtonText,
-            DefaultButton = viewModel.ContentDialogSettings.DefaultButton,
+            PrimaryButtonText = ViewModel.ContentDialogSettings.PrimaryButtonText,
+            SecondaryButtonText = ViewModel.ContentDialogSettings.SecondaryButtonText,
+            CloseButtonText = ViewModel.ContentDialogSettings.CloseButtonText,
+            DefaultButton = ViewModel.ContentDialogSettings.DefaultButton,
 
-            OwnerWindow = viewModel.ContentDialogSettings.IsChild ? Application.Current.MainWindow : null,
-            CenterInParent = viewModel.ContentDialogSettings.CenterInParent,
-            ThemeMode = viewModel.ContentDialogSettings.ThemeMode
+            OwnerWindow = ViewModel.ContentDialogSettings.IsChild ? Application.Current.MainWindow : null,
+            CenterInParent = ViewModel.ContentDialogSettings.CenterInParent,
+            ThemeMode = ViewModel.ContentDialogSettings.ThemeMode
         };
-        if (viewModel.ContentDialogSettings.PrimaryButtonNotClose)
+        if (ViewModel.ContentDialogSettings.PrimaryButtonNotClose)
         {
             dialog.PrimaryButtonClick += (o, e) => e.Cancel = true;
         }
-        if (viewModel.ContentDialogSettings.SecondaryButtonNotClose)
+        if (ViewModel.ContentDialogSettings.SecondaryButtonNotClose)
         {
             dialog.SecondaryButtonClick += (o, e) => e.Cancel = true;
         }
-        ContentDialogResult result = dialog.Show(viewModel.ContentDialogSettings.IsModal);
+        ContentDialogResult result = dialog.Show(ViewModel.ContentDialogSettings.IsModal);
         ContentDialogResultBox.Text = result.ToString();
     }
 
     private void ShowXamlContentDialogButton_Click(object sender, RoutedEventArgs e)
     {
-        ContentDialogResult result = XamlWindowedContentDialog.Show();
+        WindowedContentDialog dialog = (WindowedContentDialog) Resources["XamlWindowedContentDialog"];
+        ContentDialogResult result = dialog.Show();
         ContentDialogResultBox.Text = result.ToString();
     }
 
     private void ShowContentDialogWindowButton_Click(object sender, RoutedEventArgs args)
     {
-        new SampleContentDialogWindow
+        SampleContentDialogWindow window = new()
         {
             ThemeMode = Application.Current.MainWindow.ThemeMode
-        }
-        .Show();
+        };
+        window.Closed += (sender, args) =>
+        {
+            SampleContentDialogWindow window = (SampleContentDialogWindow) sender!;
+            ContentDialogWindowResultBox.Text = window.Result.ToString();
+        };
+        window.Show();
     }
 
     private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

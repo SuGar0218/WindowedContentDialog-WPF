@@ -11,6 +11,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs;
 /// <summary>
 /// Derived classes must 
 /// </summary>
+[TemplatePart(Name = nameof(ContentDialogContent), Type = typeof(ContentDialogContent))]
 public partial class ContentDialogWindow : Window
 {
     static ContentDialogWindow() => DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialogWindow), new FrameworkPropertyMetadata(typeof(ContentDialogWindow)));
