@@ -5,18 +5,18 @@
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Themes/ContentDialogContent/ContentDialogContent_themeresources.xaml" />
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/ContentDialog/ContentDialogContent_themeresources.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:ContentDialogContent}">
-        <!--<Setter Property="Foreground" Value="{StaticResource ContentDialogForeground}" />-->
-        <!--<Setter Property="Background" Value="Transparent" />-->
-        <!--<Setter Property="BorderThickness" Value="0" />-->
-        <!--<Setter Property="BorderBrush" Value="{StaticResource ContentDialogBorderBrush}" />-->
-        <!--<Setter Property="PrimaryButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />-->
-        <!--<Setter Property="SecondaryButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />-->
-        <!--<Setter Property="CloseButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />-->
-        <!--<Setter Property="CornerRadius" Value="0" />-->
+    <Style x:Key="ContentDialogContentDefaultStyle" TargetType="{x:Type local:ContentDialogContent}">
+        <Setter Property="Foreground" Value="{DynamicResource ContentDialogForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ContentDialogBorderBrush}" />
+        <Setter Property="PrimaryButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />
+        <Setter Property="SecondaryButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />
+        <Setter Property="CloseButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />
+        <Setter Property="CornerRadius" Value="0" />
         <Setter Property="MinWidth" Value="{StaticResource ContentDialogMinWidth}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -186,4 +186,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style BasedOn="{StaticResource ContentDialogContentDefaultStyle}" TargetType="{x:Type local:ContentDialogContent}" />
+
 </ResourceDictionary>

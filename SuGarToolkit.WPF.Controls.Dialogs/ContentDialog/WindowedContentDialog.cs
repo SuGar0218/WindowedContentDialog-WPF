@@ -157,7 +157,10 @@ public partial class WindowedContentDialog : Control, IStandaloneContentDialog
         if (OwnerWindow is not null)
             return OwnerWindow.ThemeMode;
 
-        return ThemeMode;
+        if (Application.Current.MainWindow is not null)
+            return Application.Current.MainWindow.ThemeMode;
+
+        return Application.Current.ThemeMode;
     }
 
     [DisallowNull]

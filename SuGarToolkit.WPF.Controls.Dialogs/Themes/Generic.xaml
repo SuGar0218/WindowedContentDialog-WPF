@@ -5,9 +5,9 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
-        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Themes/ContentDialogContent/ContentDialogContent.xaml" />
-        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Themes/ContentDialogWindow/ContentDialogWindow.xaml" />
-        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Themes/MessageBoxHeader/MessageBoxHeader.xaml" />
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/ContentDialog/ContentDialogContent.xaml" />
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/ContentDialogWindow/ContentDialogWindow.xaml" />
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/MessageBoxHeader/MessageBoxHeader.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

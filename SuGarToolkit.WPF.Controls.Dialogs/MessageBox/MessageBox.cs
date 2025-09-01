@@ -245,20 +245,8 @@ public class MessageBox : MessageBoxBase
         WindowTitle = _title,
         IsModal = _isModal,
         OwnerWindow = _owner,
-        //SystemBackdrop = _options.SystemBackdrop,
         CenterInParent = _options.CenterInParent,
         IsTitleBarVisible = _options.IsTitleBarVisible
     };
-
-    //protected override ElementTheme DetermineTheme()
-    //{
-    //    if (_options.RequestedTheme is not ElementTheme.Default)
-    //        return _options.RequestedTheme;
-
-    //    if (_owner?.Content is FrameworkElement root)
-    //        return root.ActualTheme;
-
-    //    return ElementTheme.Default;
-    //}
 }
 

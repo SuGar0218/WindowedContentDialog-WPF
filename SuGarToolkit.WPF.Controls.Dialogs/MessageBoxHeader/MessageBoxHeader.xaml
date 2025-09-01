@@ -5,7 +5,7 @@
     xmlns:local="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Themes/MessageBoxHeader/MessageBoxHeader_themeresources.xaml" />
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/MessageBoxHeader/MessageBoxHeader_themeresources.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type local:MessageBoxHeader}">

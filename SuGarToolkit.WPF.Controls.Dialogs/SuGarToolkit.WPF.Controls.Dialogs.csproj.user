@@ -2,10 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="ContentDialogWindow.cs">
+    <Compile Update="ContentDialogWindow\ContentDialogWindow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="WindowedContentDialogPresenterWindow.cs">
+    <Compile Update="ContentDialog\WindowedContentDialogPresenterWindow.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

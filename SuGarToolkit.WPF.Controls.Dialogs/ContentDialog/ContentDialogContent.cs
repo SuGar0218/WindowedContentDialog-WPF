@@ -20,13 +20,49 @@ public partial class ContentDialogContent : ContentControl
         Unloaded += (o, e) => countCustomMeasureAfterLoaded = 0;
     }
 
-    private Button PrimaryButton;
-    private Button SecondaryButton;
-    private Button CloseButton;
+    [DependencyProperty]
+    public partial object? Title { get; set; }
+
+    [DependencyProperty]
+    public partial DataTemplate? TitleTemplate { get; set; }
+
+    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
+    public partial string? PrimaryButtonText { get; set; }
+
+    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
+    public partial string? SecondaryButtonText { get; set; }
+
+    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
+    public partial string? CloseButtonText { get; set; }
+
+    [DependencyProperty(DefaultValue = true)]
+    public partial bool IsPrimaryButtonEnabled { get; set; }
+
+    [DependencyProperty(DefaultValue = true)]
+    public partial bool IsSecondaryButtonEnabled { get; set; }
+
+    [DependencyProperty(DefaultValue = ContentDialogButton.Close, PropertyChanged = nameof(OnDefaultButtonChanged))]
+    public partial ContentDialogButton DefaultButton { get; set; }
+
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    public partial Style? PrimaryButtonStyle { get; set; }
+
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    public partial Style? SecondaryButtonStyle { get; set; }
+
+    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
+    public partial Style? CloseButtonStyle { get; set; }
+
+    [DependencyProperty]
+    public partial CornerRadius CornerRadius { get; set; }
 
     public event RoutedEventHandler? PrimaryButtonClick;
     public event RoutedEventHandler? SecondaryButtonClick;
     public event RoutedEventHandler? CloseButtonClick;
+
+    private Button PrimaryButton;
+    private Button SecondaryButton;
+    private Button CloseButton;
 
     public UIElement TitleArea { get; private set; }
     public Grid DialogSpace { get; private set; }
@@ -216,42 +252,6 @@ public partial class ContentDialogContent : ContentControl
             self.DefaultButtonState = self.DetermineDefaultButtonState();
         }
     }
-
-    [DependencyProperty]
-    public partial object? Title { get; set; }
-
-    [DependencyProperty]
-    public partial DataTemplate? TitleTemplate { get; set; }
-
-    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
-    public partial string? PrimaryButtonText { get; set; }
-
-    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
-    public partial string? SecondaryButtonText { get; set; }
-
-    [DependencyProperty(PropertyChanged = nameof(OnButtonTextChanged))]
-    public partial string? CloseButtonText { get; set; }
-
-    [DependencyProperty(DefaultValue = true)]
-    public partial bool IsPrimaryButtonEnabled { get; set; }
-
-    [DependencyProperty(DefaultValue = true)]
-    public partial bool IsSecondaryButtonEnabled { get; set; }
-
-    [DependencyProperty(DefaultValue = ContentDialogButton.Close, PropertyChanged = nameof(OnDefaultButtonChanged))]
-    public partial ContentDialogButton DefaultButton { get; set; }
-
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
-    public partial Style? PrimaryButtonStyle { get; set; }
-
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
-    public partial Style? SecondaryButtonStyle { get; set; }
-
-    [DependencyProperty(DefaultValuePath = nameof(DefaultButtonStyle))]
-    public partial Style? CloseButtonStyle { get; set; }
-
-    [DependencyProperty]
-    public partial CornerRadius CornerRadius { get; set; }
 
     private static Style DefaultButtonStyle => (Style) Application.Current.Resources["DefaultButtonStyle"];
 }
