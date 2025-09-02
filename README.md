@@ -1,24 +1,37 @@
-# WindowedContentDialog for WPF
+# WindowedContentDialog for WPF (Aero)
 
 Show ContentDialog and MessageBox with similar layout to WinUI 3 in Aero style in a separate window.
 
 ![WindowedContentDialogAero](https://github.com/user-attachments/assets/3c9e79bf-e332-4295-a18d-ea3c046a2b3c)
 
-There has been WindowedContentDialog for WinUI3: https://github.com/SuGar0218/WindowedContentDialog
+There has been WindowedContentDialog for WinUI 3: https://github.com/SuGar0218/WindowedContentDialog
 
 This library depends on .NET 8.
 
 ``` xml
 <ResourceDictionary.MergedDictionaries>
-    <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
+    <ResourceDictionary Source="/PresentationFramework.Aero,Version=3.0.0.0,Culture=neutral,PublicKeyToken=31bf3856ad364e35;component/themes/aero.normalcolor.xaml" />
 </ResourceDictionary.MergedDictionaries>
 ```
 
 ## Attention namespace
 
+### Different pakcages, same namespace
+
+This repository has multiple branches that provide different visual styles. Every style corresponds to a branch and a NuGet package. Although these packages have different names, the namespace inside are the same.
+
+For example, namespaces in these packages
+
+- SuGarToolkit.WPF.Controls.Dialogs.Fluent
+- SuGarToolkit.WPF.Controls.Dialogs.Aero
+
+are the same: ```SuGarToolkit.WPF.Controls.Dialogs```.
+
+### Class names conflict with system
+
 Some class names are the same as them in namespace ```System.Windows```, such as ```MessageBox``` and ```MessageBoxResult```.
 
-If you want to use Fluent style MessageBox instead of traditional MessageBox:
+If you want to use this MessageBox instead of traditional MessageBox:
 
 ``` C#
 using MessageBox = SuGarToolkit.WPF.Controls.Dialogs.MessageBox;
@@ -140,5 +153,4 @@ xmlns:dialogs="clr-namespace:SuGarToolkit.WPF.Controls.Dialogs;assembly=SuGarToo
     </StackPanel>
 
 </dialogs:ContentDialogWindow>
-
 ```
