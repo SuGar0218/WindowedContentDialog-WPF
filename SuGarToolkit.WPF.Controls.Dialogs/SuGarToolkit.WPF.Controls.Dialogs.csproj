@@ -46,7 +46,7 @@
 		<Resource Include="Resources\MessageBoxIcon.Success.png" />
 		<Resource Include="Resources\MessageBoxIcon.Warning.png" />
 		<EmbeddedResource Update="Strings\MessageBoxButtonText.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
+			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>MessageBoxButtonText.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Strings\MessageBoxButtonText.zh-CN.resx">

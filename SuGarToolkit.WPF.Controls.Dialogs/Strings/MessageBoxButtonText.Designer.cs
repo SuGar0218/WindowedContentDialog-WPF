@@ -22,7 +22,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MessageBoxButtonText {
+    public class MessageBoxButtonText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         ///   返回此类使用的缓存的 ResourceManager 实例。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SuGarToolkit.WPF.Controls.Dialogs.Strings.MessageBoxButtonText", typeof(MessageBoxButtonText).Assembly);
@@ -51,7 +51,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 Abort 的本地化字符串。
         /// </summary>
-        internal static string Abort {
+        public static string Abort {
             get {
                 return ResourceManager.GetString("Abort", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 Cancel 的本地化字符串。
         /// </summary>
-        internal static string Cancel {
+        public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
             }
@@ -81,16 +81,16 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 Continue 的本地化字符串。
         /// </summary>
-        internal static string Continue {
+        public static string Continue {
             get {
                 return ResourceManager.GetString("Continue", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 Igore 的本地化字符串。
+        ///   查找类似 Ignore 的本地化字符串。
         /// </summary>
-        internal static string Ignore {
+        public static string Ignore {
             get {
                 return ResourceManager.GetString("Ignore", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 No 的本地化字符串。
         /// </summary>
-        internal static string No {
+        public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 OK 的本地化字符串。
         /// </summary>
-        internal static string OK {
+        public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 Retry 的本地化字符串。
         /// </summary>
-        internal static string Retry {
+        public static string Retry {
             get {
                 return ResourceManager.GetString("Retry", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 Try again 的本地化字符串。
         /// </summary>
-        internal static string TryAgain {
+        public static string TryAgain {
             get {
                 return ResourceManager.GetString("TryAgain", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace SuGarToolkit.WPF.Controls.Dialogs.Strings {
         /// <summary>
         ///   查找类似 Yes 的本地化字符串。
         /// </summary>
-        internal static string Yes {
+        public static string Yes {
             get {
                 return ResourceManager.GetString("Yes", resourceCulture);
             }
