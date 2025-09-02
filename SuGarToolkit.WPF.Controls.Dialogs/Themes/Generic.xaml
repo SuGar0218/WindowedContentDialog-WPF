@@ -7,7 +7,7 @@
         <ResourceDictionary Source="/PresentationFramework.Aero,Version=3.0.0.0,Culture=neutral,PublicKeyToken=31bf3856ad364e35;component/themes/aero.normalcolor.xaml" />
         <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/ContentDialog/ContentDialogContent.xaml" />
         <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/ContentDialogWindow/ContentDialogWindow.xaml" />
-        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/MessageBoxHeader/MessageBoxHeader.xaml" />
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/MessageBox/MessageBoxHeader.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

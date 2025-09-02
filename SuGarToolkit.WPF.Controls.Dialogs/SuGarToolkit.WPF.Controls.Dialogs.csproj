@@ -12,6 +12,7 @@
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<NoWarn>WPF0001</NoWarn>
+		<PackageId>$(AssemblyName).Aero</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>
