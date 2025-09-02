@@ -1,10 +1,12 @@
 # WindowedContentDialog for WPF
 
-Show ContentDialog similar to WinUI3 and MessageBox in WinUI3 style in a separate window.
+Show ContentDialog and MessageBox with similar layout to WinUI 3 in Aero style in a separate window.
+
+![WindowedContentDialogAero](https://github.com/user-attachments/assets/3c9e79bf-e332-4295-a18d-ea3c046a2b3c)
 
 There has been WindowedContentDialog for WinUI3: https://github.com/SuGar0218/WindowedContentDialog
 
-This library depends on the new Fluent style provided for WPF in .NET 9.
+This library depends on .NET 8.
 
 ``` xml
 <ResourceDictionary.MergedDictionaries>
