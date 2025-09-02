@@ -30,15 +30,7 @@ public partial class WindowedContentDialogPresenterWindow : Window
         SizeToContent = SizeToContent.WidthAndHeight;
         Activated += (sender, args) => ContentDialogContent!.AfterGotFocus();
         Deactivated += (sender, args) => ContentDialogContent!.AfterLostFocus();
-        if (Environment.OSVersion.Version.Major >= 10)
-        {
-            WindowChrome.SetWindowChrome(this, new WindowChrome()
-            {
-                GlassFrameThickness = new Thickness(-1),
-                NonClientFrameEdges = NonClientFrameEdges.Left | NonClientFrameEdges.Right | NonClientFrameEdges.Bottom
-            });
-        }
-        else
+        if (SystemParameters.IsGlassEnabled)
         {
             WindowChrome.SetWindowChrome(this, new WindowChrome()
             {

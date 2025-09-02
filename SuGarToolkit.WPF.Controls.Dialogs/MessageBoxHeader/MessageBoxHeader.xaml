@@ -30,7 +30,8 @@
                                 <Image
                                     x:Name="MessageBoxIconImage"
                                     Height="24"
-                                    Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Resources/MessageBoxIcon.Information.png" />
+                                    Source="/SuGarToolkit.WPF.Controls.Dialogs;component/Resources/MessageBoxIcon.Information.png"
+                                    UseLayoutRounding="True" />
                             </Grid>
 
                             <TextBlock

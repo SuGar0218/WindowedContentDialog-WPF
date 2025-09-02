@@ -41,7 +41,7 @@
                                 Background="{StaticResource ContentDialogWindowTopOverlay}"
                                 BorderBrush="{StaticResource ContentDialogWindowSeparatorBorderBrush}"
                                 BorderThickness="{StaticResource ContentDialogSeparatorThickness}">
-                                <Grid helper:GlowingTextBlockPatch.UseGlowingTextBlock="True">
+                                <Grid helper:GlowingTextBlockHelper.UseGlowingTextBlock="True">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="*" />

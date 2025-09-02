@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Shell;
 
 namespace SuGarToolkit.WPF.Samples.Dialogs;
 

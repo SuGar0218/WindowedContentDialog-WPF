@@ -18,15 +18,11 @@ public partial class ContentDialogWindow : Window
 
     public ContentDialogWindow()
     {
-        if (Environment.OSVersion.Version.Major >= 10)
-        {
-            WindowChrome.SetWindowChrome(this, new WindowChrome()
-            {
-                GlassFrameThickness = new Thickness(-1),
-                NonClientFrameEdges = NonClientFrameEdges.Left | NonClientFrameEdges.Right | NonClientFrameEdges.Bottom
-            });
-        }
-        else
+        Activated += (sender, args) => ContentDialogContent!.AfterGotFocus();
+        Deactivated += (sender, args) => ContentDialogContent!.AfterLostFocus();
+        Style = (Style) Application.Current.Resources["ContentDialogWindowDefaultStyle"];
+        DataContext = this;
+        if (SystemParameters.IsGlassEnabled)
         {
             WindowChrome.SetWindowChrome(this, new WindowChrome()
             {
@@ -34,10 +30,6 @@ public partial class ContentDialogWindow : Window
                 NonClientFrameEdges = NonClientFrameEdges.Bottom
             });
         }
-        Activated += (sender, args) => ContentDialogContent!.AfterGotFocus();
-        Deactivated += (sender, args) => ContentDialogContent!.AfterLostFocus();
-        Style = (Style) Application.Current.Resources["ContentDialogWindowDefaultStyle"];
-        DataContext = this;
     }
 
     public event CancelEventHandler? PrimaryButtonClick;

@@ -18,7 +18,7 @@ public partial class ContentDialogContent : ContentControl
     public ContentDialogContent() : base()
     {
         Loaded += OnLoaded;
-        Unloaded += (o, e) => countCustomMeasureAfterLoaded = 0;
+        Unloaded += (o, e) => needsCustomMeasure = true;
     }
 
     [DependencyProperty]
@@ -120,23 +120,14 @@ public partial class ContentDialogContent : ContentControl
         }
     }
 
-    /// <summary>
-    /// Whether customized measurement in MeasureOverride is needed.
-    /// <br/>
-    /// This variable is set to avoid redundant calculations.
-    /// <br/>
-    /// If the first measurement after Loaded is finished, there will be no need for customized measurement until Unloaded.
-    /// </summary>
-    private int countCustomMeasureAfterLoaded;
+    private bool needsCustomMeasure = true;
 
     protected override Size MeasureOverride(Size availableSize)
     {
-        if (countCustomMeasureAfterLoaded > 2)
+        if (!needsCustomMeasure)
             return base.MeasureOverride(availableSize);
 
-        if (IsLoaded)
-            countCustomMeasureAfterLoaded++;
-
+        needsCustomMeasure = NeedsCustomMeasure();
         return CustomMeasure(availableSize);
     }
 
@@ -180,6 +171,27 @@ public partial class ContentDialogContent : ContentControl
             desiredSize.Width = minWidth;
         }
         return desiredSize;
+    }
+
+    private bool NeedsCustomMeasure()
+    {
+        if (!IsLoaded)
+            return true;
+
+        double width = double.NaN;
+
+        if (PrimaryButton.Visibility is Visibility.Visible)
+            width = PrimaryButton.ActualWidth;
+
+        if (SecondaryButton.Visibility is Visibility.Visible && !double.IsNaN(width) && width != SecondaryButton.ActualWidth)
+            return true;
+
+        width = SecondaryButton.ActualWidth;
+
+        if (CloseButton.Visibility is Visibility.Visible && !double.IsNaN(width) && width != CloseButton.ActualWidth)
+            return true;
+
+        return false;
     }
 
     public void AfterGotFocus()
@@ -274,7 +286,7 @@ public partial class ContentDialogContent : ContentControl
         if (self.IsLoaded)
         {
             self.ButtonsVisibilityState = self.DetermineButtonsVisibilityState();
-            self.countCustomMeasureAfterLoaded = 0;
+            self.needsCustomMeasure = true;
         }
     }
 
