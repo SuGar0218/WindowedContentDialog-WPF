@@ -33,7 +33,7 @@
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
 		<EmbeddedResource Update="Strings\MessageBoxButtonText.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
+			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>MessageBoxButtonText.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Strings\MessageBoxButtonText.zh-CN.resx">
