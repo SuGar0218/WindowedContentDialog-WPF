@@ -7,7 +7,7 @@
         <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
         <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/ContentDialog/ContentDialogContent.xaml" />
         <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/ContentDialogWindow/ContentDialogWindow.xaml" />
-        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/MessageBoxHeader/MessageBoxHeader.xaml" />
+        <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/MessageBox/MessageBoxHeader.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
