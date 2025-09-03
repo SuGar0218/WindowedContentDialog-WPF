@@ -1,5 +1,7 @@
 # WindowedContentDialog for WPF
 
+<img width="1920" height="1080" alt="WindowedContentDialog for WPF" src="https://github.com/user-attachments/assets/4b7f52fc-b578-4264-8bef-e7ed1f1e657c" />
+
 Show ContentDialog similar to WinUI 3 and MessageBox in WinUI 3 style in a separate window.
 
 There has been WindowedContentDialog for WinUI3: https://github.com/SuGar0218/WindowedContentDialog
@@ -7,6 +9,7 @@ There has been WindowedContentDialog for WinUI3: https://github.com/SuGar0218/Wi
 This library depends on the new Fluent style provided for WPF in .NET 9.
 
 ``` xml
+
 <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
 </ResourceDictionary.MergedDictionaries>
