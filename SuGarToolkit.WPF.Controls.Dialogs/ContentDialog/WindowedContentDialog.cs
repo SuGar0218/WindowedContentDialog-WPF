@@ -1,11 +1,10 @@
-﻿using System.ComponentModel;
+﻿using SuGarToolkit.WPF.SourceGenerators;
+
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
-
-using SuGarToolkit.WPF.SourceGenerators;
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;
 

@@ -3,7 +3,6 @@
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows;
-using System.Windows.Markup;
 using System.Windows.Shell;
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;

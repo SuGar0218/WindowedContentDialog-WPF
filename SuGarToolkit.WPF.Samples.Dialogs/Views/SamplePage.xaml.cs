@@ -1,5 +1,4 @@
 ﻿using SuGarToolkit.WPF.Controls.Dialogs;
-using SuGarToolkit.WPF.Samples.Dialogs.ViewModels;
 
 using System.Windows;
 using System.Windows.Controls;

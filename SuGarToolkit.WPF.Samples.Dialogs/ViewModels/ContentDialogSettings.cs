@@ -2,8 +2,6 @@
 
 using SuGarToolkit.WPF.Controls.Dialogs;
 
-using System.Windows;
-
 namespace SuGarToolkit.WPF.Samples.Dialogs.ViewModels;
 
 public partial class ContentDialogSettings : ObservableObject
