@@ -22,6 +22,7 @@
                         <TextBox
                             Background="Transparent"
                             BorderThickness="0"
+                            IsReadOnly="True"
                             Text="{TemplateBinding Text}"
                             TextWrapping="{TemplateBinding TextWrapping}" />
                     </Border>
