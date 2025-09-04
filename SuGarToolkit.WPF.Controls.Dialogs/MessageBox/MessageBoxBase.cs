@@ -1,7 +1,8 @@
 ﻿using SuGarToolkit.WPF.Controls.Dialogs.Strings;
 
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;
 
@@ -151,10 +152,17 @@ public abstract class MessageBoxBase
     /// TextBlock with IsTextSelectionEnabled=true and TextWrapping=TextWrapping.Wrap
     /// cannot update text wrapping automatically until the next time user selects text.
     /// </summary>
-    private static TextBlock? CreateSelectableTextBlock(string? text) => string.IsNullOrEmpty(text) ? null : new()
+    private static SelectableTextBlock? CreateSelectableTextBlock(string? text) => string.IsNullOrEmpty(text) ? null : new()
     {
         Text = text,
         TextWrapping = TextWrapping.Wrap,
-        HorizontalAlignment = HorizontalAlignment.Stretch
+        HorizontalAlignment = HorizontalAlignment.Stretch,
+        Effect = new DropShadowEffect
+        {
+            Color = Colors.White,
+            Opacity = 1.0,
+            ShadowDepth = 0,
+            BlurRadius = 14
+        }
     };
 }
