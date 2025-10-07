@@ -10,7 +10,6 @@
         <ResourceDictionary Source="/SuGarToolkit.WPF.Controls.Dialogs;component/MessageBox/MessageBoxHeader.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-
     <Style TargetType="{x:Type local:SelectableTextBlock}">
         <Setter Property="Template">
             <Setter.Value>
@@ -30,4 +29,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>
