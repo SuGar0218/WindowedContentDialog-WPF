@@ -2,6 +2,7 @@
 
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SuGarToolkit.WPF.Controls.Dialogs;
 
@@ -81,41 +82,42 @@ public abstract class MessageBoxBase
         switch (_buttons)
         {
             case MessageBoxButtons.OK:
-                _dialog.CloseButtonText = NativeMessageBoxButtonTextLoader.OK;
+                _dialog.CloseButtonText = NativeMessageBoxButtonStringLoader.OK.Replace('&', '_');
                 _dialog.DefaultButton = ContentDialogButton.Close;
                 break;
 
             case MessageBoxButtons.OKCancel:
-                _dialog.PrimaryButtonText = NativeMessageBoxButtonTextLoader.OK;
-                _dialog.SecondaryButtonText = NativeMessageBoxButtonTextLoader.Cancel;
+                _dialog.PrimaryButtonText = NativeMessageBoxButtonStringLoader.OK.Replace('&', '_');
+                _dialog.CloseButtonText = NativeMessageBoxButtonStringLoader.Cancel.Replace('&', '_');
+                _dialog.DefaultButton = ContentDialogButton.Close;
                 break;
 
             case MessageBoxButtons.YesNo:
-                _dialog.PrimaryButtonText = NativeMessageBoxButtonTextLoader.Yes;
-                _dialog.SecondaryButtonText = NativeMessageBoxButtonTextLoader.No;
+                _dialog.PrimaryButtonText = NativeMessageBoxButtonStringLoader.Yes.Replace('&', '_');
+                _dialog.SecondaryButtonText = NativeMessageBoxButtonStringLoader.No.Replace('&', '_');
                 break;
 
             case MessageBoxButtons.YesNoCancel:
-                _dialog.PrimaryButtonText = NativeMessageBoxButtonTextLoader.Yes;
-                _dialog.SecondaryButtonText = NativeMessageBoxButtonTextLoader.No;
-                _dialog.CloseButtonText = NativeMessageBoxButtonTextLoader.Cancel;
+                _dialog.PrimaryButtonText = NativeMessageBoxButtonStringLoader.Yes.Replace('&', '_');
+                _dialog.SecondaryButtonText = NativeMessageBoxButtonStringLoader.No.Replace('&', '_');
+                _dialog.CloseButtonText = NativeMessageBoxButtonStringLoader.Cancel.Replace('&', '_');
                 break;
 
             case MessageBoxButtons.AbortRetryIgnore:
-                _dialog.PrimaryButtonText = NativeMessageBoxButtonTextLoader.Abort;
-                _dialog.SecondaryButtonText = NativeMessageBoxButtonTextLoader.Retry;
-                _dialog.CloseButtonText = NativeMessageBoxButtonTextLoader.Ignore;
+                _dialog.PrimaryButtonText = NativeMessageBoxButtonStringLoader.Abort.Replace('&', '_');
+                _dialog.SecondaryButtonText = NativeMessageBoxButtonStringLoader.Retry.Replace('&', '_');
+                _dialog.CloseButtonText = NativeMessageBoxButtonStringLoader.Ignore.Replace('&', '_');
                 break;
 
             case MessageBoxButtons.RetryCancel:
-                _dialog.PrimaryButtonText = NativeMessageBoxButtonTextLoader.Retry;
-                _dialog.SecondaryButtonText = NativeMessageBoxButtonTextLoader.Cancel;
+                _dialog.PrimaryButtonText = NativeMessageBoxButtonStringLoader.Retry.Replace('&', '_');
+                _dialog.SecondaryButtonText = NativeMessageBoxButtonStringLoader.Cancel.Replace('&', '_');
                 break;
 
             case MessageBoxButtons.CancelTryContinue:
-                _dialog.PrimaryButtonText = NativeMessageBoxButtonTextLoader.Continue;
-                _dialog.SecondaryButtonText = NativeMessageBoxButtonTextLoader.TryAgain;
-                _dialog.CloseButtonText = NativeMessageBoxButtonTextLoader.Cancel;
+                _dialog.PrimaryButtonText = NativeMessageBoxButtonStringLoader.Continue.Replace('&', '_');
+                _dialog.SecondaryButtonText = NativeMessageBoxButtonStringLoader.TryAgain.Replace('&', '_');
+                _dialog.CloseButtonText = NativeMessageBoxButtonStringLoader.Cancel.Replace('&', '_');
                 _dialog.DefaultButton = ContentDialogButton.Close;
                 break;
         }

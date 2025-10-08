@@ -17,6 +17,7 @@ public partial class ContentDialogContent : ContentControl
 
     public ContentDialogContent() : base()
     {
+        Loaded += OnLoaded;
         Unloaded += (o, e) => needsCustomMeasure = true;
     }
 
@@ -87,6 +88,39 @@ public partial class ContentDialogContent : ContentControl
         ButtonsVisibilityState = DetermineButtonsVisibilityState();
     }
 
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        InvalidateMeasure();
+        FocusOnDefaultButton();
+    }
+
+    private void FocusOnDefaultButton()
+    {
+        switch (DefaultButton)
+        {
+            case ContentDialogButton.Primary:
+                if (PrimaryButton.IsEnabled)
+                {
+                    PrimaryButton.Focus();
+                }
+                break;
+            case ContentDialogButton.Secondary:
+                if (SecondaryButton.IsEnabled)
+                {
+                    SecondaryButton.Focus();
+                }
+                break;
+            case ContentDialogButton.Close:
+                if (CloseButton.IsEnabled)
+                {
+                    CloseButton.Focus();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     private bool needsCustomMeasure = true;
 
     protected override Size MeasureOverride(Size availableSize)
@@ -142,7 +176,7 @@ public partial class ContentDialogContent : ContentControl
 
     private bool NeedsCustomMeasure()
     {
-        if (!IsLoaded)
+        if (!IsLoaded || !IsMeasureValid)
             return true;
 
         double width = double.NaN;
@@ -243,6 +277,7 @@ public partial class ContentDialogContent : ContentControl
 
     private ContentDialogButton DetermineDefaultButtonState()
     {
+        FocusOnDefaultButton();
         return DefaultButton;
     }
 
