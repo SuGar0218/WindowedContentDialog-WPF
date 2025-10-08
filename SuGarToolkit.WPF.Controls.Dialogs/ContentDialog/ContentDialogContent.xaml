@@ -108,10 +108,18 @@
                                         <ColumnDefinition x:Name="SecondSpacer" Width="{StaticResource ContentDialogButtonSpacing}" />
                                         <ColumnDefinition x:Name="CloseColumn" Width="*" />
                                     </Grid.ColumnDefinitions>
+
+                                    <Grid.Resources>
+                                        <DataTemplate x:Key="CommandButtonContentTemplate" DataType="system:String">
+                                            <AccessText Focusable="False" Text="{Binding}" />
+                                        </DataTemplate>
+                                    </Grid.Resources>
+
                                     <Button
                                         x:Name="PrimaryButton"
                                         HorizontalAlignment="Stretch"
                                         Content="{TemplateBinding PrimaryButtonText}"
+                                        ContentTemplate="{StaticResource CommandButtonContentTemplate}"
                                         IsEnabled="{TemplateBinding IsPrimaryButtonEnabled}"
                                         IsTabStop="True"
                                         Style="{TemplateBinding PrimaryButtonStyle}"
@@ -120,6 +128,7 @@
                                         x:Name="SecondaryButton"
                                         HorizontalAlignment="Stretch"
                                         Content="{TemplateBinding SecondaryButtonText}"
+                                        ContentTemplate="{StaticResource CommandButtonContentTemplate}"
                                         IsEnabled="{TemplateBinding IsSecondaryButtonEnabled}"
                                         IsTabStop="True"
                                         Style="{TemplateBinding SecondaryButtonStyle}"
@@ -129,6 +138,7 @@
                                         Grid.Column="4"
                                         HorizontalAlignment="Stretch"
                                         Content="{TemplateBinding CloseButtonText}"
+                                        ContentTemplate="{StaticResource CommandButtonContentTemplate}"
                                         IsTabStop="True"
                                         Style="{TemplateBinding CloseButtonStyle}"
                                         ToolTipService.ToolTip="{TemplateBinding CloseButtonText}" />
